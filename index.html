@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -144,17 +143,45 @@
       margin-bottom: 1rem;
     }
 
-    /* Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .gallery img {
+    /* --- CARROUSEL --- */
+    .carousel {
+      position: relative;
       width: 100%;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 12px var(--shadow);
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px var(--shadow);
+      margin-bottom: 1rem;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+
+    .carousel img {
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 12px;
+    }
+
+    .carousel-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .carousel-buttons button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+    }
+
+    .carousel-buttons button.active {
+      background: var(--accent);
     }
 
     /* Footer */
@@ -224,15 +251,10 @@
   <!-- A PROPOS -->
   <section id="apropos">
     <h2>À propos</h2>
-    <p class="subtitle">
-      
-    </p>
 
     <div class="card">
       <p>
        M3DS développe des solutions simples, propres et adaptées à l’usage réel : modélisation 3D, accessoires NFC et interfaces dédiées. J’avance par petites itérations, avec des validations rapides et un dialogue direct. Chaque projet est conçu pour être clair, durable et maîtrisable, sans complexité inutile.
-
-
       </p>
     </div>
   </section>
@@ -240,23 +262,24 @@
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <h2>Portfolio</h2>
-    <p class="subtitle">Trois projets représentatifs. Remplacez les images.</p>
+    <p class="subtitle">Trois projets représentatifs.</p>
 
     <div class="grid grid-3">
       <div class="card">
         <h3>BlueTrack</h3>
         <p>Télécommande bluetooth autonome pour voiture, vélo, etc...</p>
-        
-<a href="https://www.tiktok.com/@m3dsfr/video/7577473919280581910" 
-   target="_blank" 
-   style="color: var(--accent); text-decoration:none; font-weight:600;">
-  Voir la vidéo TikTok →
-</a>
+        <a href="https://www.tiktok.com/@m3dsfr/video/7577473919280581910" 
+           target="_blank" 
+           style="color: var(--accent); text-decoration:none; font-weight:600;">
+          Voir la vidéo TikTok →
+        </a>
       </div>
+
       <div class="card">
         <h3>Projet 2</h3>
         <p>Description du projet. Placeholder premium.</p>
       </div>
+
       <div class="card">
         <h3>Projet 3</h3>
         <p>Description du projet. Placeholder premium.</p>
@@ -264,17 +287,21 @@
     </div>
   </section>
 
-  <!-- GALERIE -->
+  <!-- GALERIE (CARROUSEL) -->
   <section id="galerie">
     <h2>Galerie photos</h2>
     <p class="subtitle">Nos projets de modélisation et d’impressions 3D.</p>
 
-    <div class="gallery">
-      <img src="https://m3ds-fr.github.io/standCV.png" alt="Image placeholder">
-      <img src="https://m3ds-fr.github.io/charniere.png" alt="Image placeholder">
-      <img src="https://m3ds-fr.github.io/amortisseurwc.png" alt="Image placeholder">
-      <img src="placeholder4.jpg" alt="Image placeholder">
+    <div class="carousel">
+      <div class="carousel-track" id="carousel-track">
+        <img src="https://m3ds-fr.github.io/standCV.png" alt="Projet 1">
+        <img src="https://m3ds-fr.github.io/charniere.png" alt="Projet 2">
+        <img src="https://m3ds-fr.github.io/amortisseurwc.png" alt="Projet 3">
+        <img src="https://m3ds-fr.github.io/placeholder4.jpg" alt="Projet 4">
+      </div>
     </div>
+
+    <div class="carousel-buttons" id="carousel-buttons"></div>
   </section>
 
   <!-- TARIFS -->
@@ -301,7 +328,7 @@
   <!-- FAQ -->
   <section id="faq">
     <h2>FAQ</h2>
-    <p class="subtitle">Questions fréquentes. Remplacez selon vos besoins.</p>
+    <p class="subtitle">Questions fréquentes.</p>
 
     <div class="card">
       <h3>Comment fonctionne un projet ?</h3>
@@ -335,38 +362,15 @@
   </section>
 
   <!-- MENTIONS -->
- <section id="mentions">
-  <h2>Mentions légales</h2>
-
-  <div class="card">
-    <p style="margin-bottom:0.8rem;">
-      <strong>Éditeur :</strong> M3DS – Maker 3D Services
-    </p>
-
-    <p style="margin-bottom:0.8rem;">
-      <strong>Contact :</strong> maker3dservices@gmail.com
-    </p>
-
-    <p style="margin-bottom:0.8rem;">
-      <strong>Hébergement :</strong> GitHub Pages
-    </p>
-
-    <p style="margin-bottom:0.8rem;">
-      <strong>Données personnelles :</strong> aucune donnée collectée.
-    </p>
-
-    <p style="margin-bottom:0;">
-      <strong>Propriété :</strong> contenus protégés, reproduction interdite.
-    </p>
-  </div>
-</section>
-
+  <section id="mentions">
+    <h2>Mentions légales</h2>
 
     <div class="card">
-      <p>
-        Micro‑entreprise – SIREN : XXXXXXXX – Adresse professionnelle ici.
-        Ce texte est un placeholder premium.
-      </p>
+      <p><strong>Éditeur :</strong> M3DS – Maker 3D Services</p>
+      <p><strong>Contact :</strong> maker3dservices@gmail.com</p>
+      <p><strong>Hébergement :</strong> GitHub Pages</p>
+      <p><strong>Données personnelles :</strong> aucune donnée collectée.</p>
+      <p><strong>Propriété :</strong> contenus protégés, reproduction interdite.</p>
     </div>
   </section>
 
@@ -378,6 +382,31 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* --- CARROUSEL SCRIPT --- */
+  const track = document.getElementById("carousel-track");
+  const buttonsContainer = document.getElementById("carousel-buttons");
+  const images = track.children;
+  let index = 0;
+
+  for (let i = 0; i < images.length; i++) {
+    const btn = document.createElement("button");
+    if (i === 0) btn.classList.add("active");
+    btn.addEventListener("click", () => goToSlide(i));
+    buttonsContainer.appendChild(btn);
+  }
+
+  function goToSlide(i) {
+    index = i;
+    track.style.transform = `translateX(-${i * 100}%)`;
+    updateButtons();
+  }
+
+  function updateButtons() {
+    [...buttonsContainer.children].forEach((b, i) => {
+      b.classList.toggle("active", i === index);
+    });
+  }
 </script>
 
 </body>
