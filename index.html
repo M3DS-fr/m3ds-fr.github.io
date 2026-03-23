@@ -143,50 +143,51 @@
       margin-bottom: 1rem;
     }
 
-    /* --- CARROUSEL --- */
+    /* --- CARROUSEL AUTO-ADAPTATIF --- */
     .carousel {
-  position: relative;
-  width: 100%;
-  max-width: 700px;      /* 🔥 Réduit la largeur du carrousel */
-  margin: 0 auto 1rem;   /* 🔥 Centre le carrousel */
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px var(--shadow);
-}
+      position: relative;
+      width: 100%;
+      max-width: 700px;      /* largeur contrôlée */
+      margin: 0 auto 1rem;   /* centré */
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: height 0.3s ease; /* hauteur auto */
+    }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.4s ease;
-}
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
 
-.carousel img {
-  width: 100%;
-  flex-shrink: 0;
-  border-radius: 12px;
-  object-fit: contain;
-  max-height: 250px;     /* 🔥 Réduit la hauteur */
-}
+    .carousel img {
+      width: 100%;
+      height: auto;          /* hauteur auto */
+      flex-shrink: 0;
+      border-radius: 12px;
+      object-fit: contain;   /* image entière */
+      background: var(--bg-alt);
+    }
 
-.carousel-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
-}
+    .carousel-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
 
-.carousel-buttons button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: var(--border);
-  cursor: pointer;
-}
+    .carousel-buttons button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+    }
 
-.carousel-buttons button.active {
-  background: var(--accent);
-}
-
+    .carousel-buttons button.active {
+      background: var(--accent);
+    }
 
     /* Footer */
     footer {
@@ -291,7 +292,7 @@
     </div>
   </section>
 
-  <!-- GALERIE (CARROUSEL) -->
+  <!-- GALERIE (CARROUSEL AUTO-ADAPTATIF) -->
   <section id="galerie">
     <h2>Galerie photos</h2>
     <p class="subtitle">Nos projets de modélisation et d’impressions 3D.</p>
@@ -387,12 +388,14 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  /* --- CARROUSEL SCRIPT --- */
+  /* --- CARROUSEL AUTO-ADAPTATIF --- */
   const track = document.getElementById("carousel-track");
   const buttonsContainer = document.getElementById("carousel-buttons");
   const images = track.children;
+  const carousel = document.querySelector(".carousel");
   let index = 0;
 
+  // Crée les boutons
   for (let i = 0; i < images.length; i++) {
     const btn = document.createElement("button");
     if (i === 0) btn.classList.add("active");
@@ -400,10 +403,17 @@
     buttonsContainer.appendChild(btn);
   }
 
+  // Ajuste la hauteur du carrousel selon l’image affichée
+  function adjustHeight() {
+    const currentImage = images[index];
+    carousel.style.height = currentImage.offsetHeight + "px";
+  }
+
   function goToSlide(i) {
     index = i;
     track.style.transform = `translateX(-${i * 100}%)`;
     updateButtons();
+    adjustHeight();
   }
 
   function updateButtons() {
@@ -411,6 +421,10 @@
       b.classList.toggle("active", i === index);
     });
   }
+
+  // Ajuste la hauteur au chargement
+  window.addEventListener("load", adjustHeight);
+  window.addEventListener("resize", adjustHeight);
 </script>
 
 </body>
