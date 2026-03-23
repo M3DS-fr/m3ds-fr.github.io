@@ -2,533 +2,352 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>M3DS – 3D, NFC & Interfaces</title>
+  <title>M3DS – Modélisation 3D, NFC & Interfaces</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="M3DS – Modélisation 3D, impression, NFC et interfaces sur mesure à Rennes." />
+  <meta name="description" content="M3DS – Modélisation 3D, impression, NFC et interfaces sur mesure." />
   <style>
     :root {
-      --bg: #050814;
-      --bg-alt: #070b1c;
-      --accent: #29b6f6;
-      --accent-soft: rgba(41, 182, 246, 0.15);
-      --text: #f5f7ff;
-      --muted: #9aa3c2;
-      --border: #1b2238;
-      --danger: #ff5252;
+      --bg: #FAFAF8;
+      --bg-alt: #FFFFFF;
+      --border: #E6E4DF;
+      --text: #2A2A2A;
+      --muted: #6F6F6F;
+      --accent: #C8A97E;
+      --accent-light: #E8DCC8;
+      --shadow: rgba(0,0,0,0.06);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0b1630 0, #050814 45%, #02030a 100%);
+      font-family: "Segoe UI", sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
-    a { color: var(--accent); text-decoration: none; }
+
+    /* Header */
     header {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(5, 8, 20, 0.95), rgba(5, 8, 20, 0.7));
-      border-bottom: 1px solid var(--border);
+      z-index: 10;
     }
-    .nav {
+    nav {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0.75rem 1.5rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      align-items: center;
     }
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-    .logo-mark {
-      width: 26px;
-      height: 26px;
-      border-radius: 9px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #29b6f6 18%, #00e5ff 40%, #0d47a1 100%);
-      box-shadow: 0 0 18px rgba(0, 229, 255, 0.7);
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
     }
     .nav-links {
       display: flex;
-      gap: 1.25rem;
-      font-size: 0.9rem;
+      gap: 1.5rem;
     }
     .nav-links a {
-      color: var(--muted);
-      padding-bottom: 0.15rem;
-      border-bottom: 1px solid transparent;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
     }
     .nav-links a:hover {
-      color: var(--text);
-      border-bottom-color: var(--accent);
-    }
-    .btn-primary {
-      padding: 0.45rem 0.95rem;
-      border-radius: 999px;
-      border: 1px solid rgba(41, 182, 246, 0.6);
-      background: radial-gradient(circle at 0 0, rgba(0, 229, 255, 0.25), rgba(5, 8, 20, 0.95));
-      color: var(--text);
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-    }
-    .btn-primary span {
-      font-size: 1.1rem;
-      transform: translateY(1px);
+      color: var(--accent);
     }
 
+    .btn {
+      padding: 0.55rem 1.1rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* Layout */
     main {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 3.5rem;
+      padding: 2rem 1.5rem 4rem;
     }
 
     /* Hero */
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 2.5rem;
-      align-items: center;
-      padding: 2.5rem 1.75rem;
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 0 0, rgba(0, 229, 255, 0.18), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(103, 58, 183, 0.18), transparent 55%),
-        linear-gradient(135deg, rgba(7, 11, 28, 0.98), rgba(5, 8, 20, 0.98));
-      border: 1px solid rgba(41, 182, 246, 0.25);
-      box-shadow:
-        0 0 40px rgba(0, 0, 0, 0.7),
-        0 0 60px rgba(0, 229, 255, 0.18);
+      background: var(--bg-alt);
+      padding: 3rem 2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px var(--shadow);
       margin-bottom: 3rem;
     }
-    .hero-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-    .hero-title {
-      font-size: clamp(2.1rem, 3vw, 2.6rem);
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
     }
-    .hero-title span {
-      background: linear-gradient(120deg, #29b6f6, #00e5ff, #82b1ff);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    .hero-subtitle {
+    .hero p {
+      font-size: 1.05rem;
       color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 32rem;
-      margin-bottom: 1.4rem;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.6rem;
-    }
-    .tag {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(41, 182, 246, 0.4);
-      background: rgba(5, 8, 20, 0.8);
-      color: var(--muted);
-    }
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-    }
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    .hero-note strong {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .orb {
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 30% 20%, #ffffff 0, #e0f7fa 10%, #29b6f6 30%, #0d47a1 70%, #02030a 100%);
-      box-shadow:
-        0 0 40px rgba(0, 229, 255, 0.7),
-        0 0 90px rgba(41, 182, 246, 0.6);
-      position: relative;
-      overflow: hidden;
-    }
-    .orb-ring {
-      position: absolute;
-      inset: 18%;
-      border-radius: 50%;
-      border: 1px dashed rgba(224, 247, 250, 0.4);
-      box-shadow: 0 0 18px rgba(0, 229, 255, 0.4);
-    }
-    .orb-chip {
-      position: absolute;
-      inset: 32%;
-      border-radius: 18px;
-      border: 1px solid rgba(2, 229, 255, 0.7);
-      background: radial-gradient(circle at 0 0, rgba(0, 229, 255, 0.35), rgba(5, 8, 20, 0.95));
-      box-shadow: 0 0 24px rgba(0, 229, 255, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #e0f7fa;
-    }
-    .hero-pill {
-      position: absolute;
-      bottom: 10px;
-      right: -6px;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(5, 8, 20, 0.9);
-      border: 1px solid rgba(41, 182, 246, 0.7);
-      font-size: 0.7rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .hero-pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #00e676;
-      box-shadow: 0 0 10px rgba(0, 230, 118, 0.9);
+      max-width: 40rem;
+      margin-bottom: 1.5rem;
     }
 
     /* Sections */
     section {
       margin-bottom: 3rem;
     }
-    .section-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.75rem;
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
     }
-    .section-subtitle {
-      font-size: 0.9rem;
+    .subtitle {
       color: var(--muted);
       margin-bottom: 1.5rem;
-      max-width: 32rem;
+      max-width: 40rem;
     }
 
     .grid {
       display: grid;
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
     .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
+
     .card {
-      border-radius: 18px;
-      padding: 1.1rem 1.1rem 1rem;
-      background: radial-gradient(circle at 0 0, rgba(41, 182, 246, 0.12), rgba(7, 11, 28, 0.98));
-      border: 1px solid rgba(41, 182, 246, 0.25);
+      background: var(--bg-alt);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px var(--shadow);
     }
     .card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
     }
     .card p {
-      font-size: 0.85rem;
       color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
+      font-size: 0.95rem;
     }
 
     /* Contact */
-    .contact {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 1.75rem;
-      align-items: flex-start;
-    }
     .contact-box {
-      border-radius: 18px;
-      padding: 1.25rem 1.25rem 1.1rem;
-      background: linear-gradient(135deg, rgba(7, 11, 28, 0.98), rgba(5, 8, 20, 0.98));
-      border: 1px solid rgba(41, 182, 246, 0.3);
-    }
-    .contact-row {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      color: var(--muted);
-    }
-    .contact-row span {
-      color: var(--text);
-    }
-    .badge-local {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.75rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(41, 182, 246, 0.12);
-      border: 1px solid rgba(41, 182, 246, 0.4);
-      color: var(--muted);
-      margin-top: 0.4rem;
+      background: var(--bg-alt);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px var(--shadow);
+      margin-bottom: 1rem;
     }
 
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 1.2rem 1.5rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      font-size: 0.8rem;
+      padding: 1.5rem;
+      text-align: center;
       color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      font-size: 0.85rem;
     }
 
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 1.75rem 1.25rem;
-      }
-      .hero-visual {
-        order: -1;
-      }
-      .contact {
-        grid-template-columns: 1fr;
-      }
-      .nav-links {
-        display: none;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <header>
-    <nav class="nav">
-      <div class="logo">
-        <div class="logo-mark"></div>
-        <div>M3DS</div>
-      </div>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#vitria">VITRIA</a>
-        <a href="#projets">Projets</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a href="#contact" class="btn-primary">
-        Me contacter <span>↗</span>
-      </a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <div class="hero-kicker">Studio indépendant · Rennes</div>
-        <h1 class="hero-title">
-          Modélisation <span>3D</span>, NFC & interfaces<br />
-          pour des expériences vraiment sur mesure.
-        </h1>
-        <p class="hero-subtitle">
-          M3DS conçoit, modélise et fabrique des solutions physiques et numériques
-          adaptées à ton contexte réel : objets 3D, accessoires NFC, interfaces
-          web dédiées et workflows pensés pour durer.
-        </p>
-        <div class="hero-tags">
-          <div class="tag">Modélisation & impression 3D</div>
-          <div class="tag">NFC & objets connectés</div>
-          <div class="tag">Interfaces VITRIA</div>
-          <div class="tag">Projets sur mesure</div>
-        </div>
-        <div class="hero-cta">
-          <a href="#contact" class="btn-primary">
-            Discuter d’un projet <span>✉</span>
-          </a>
-          <div class="hero-note">
-            <strong>Micro‑entreprise</strong> · échanges directs, solutions concrètes.
-          </div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="orb">
-          <div class="orb-ring"></div>
-          <div class="orb-chip">NFC · 3D · VITRIA</div>
-        </div>
-        <div class="hero-pill">
-          <div class="hero-pill-dot"></div>
-          Prototypes & petites séries
-        </div>
-      </div>
-    </section>
+<header>
+  <nav>
+    <div class="logo">M3DS</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#apropos">À propos</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn">Me contacter</a>
+  </nav>
+</header>
 
-    <section id="services">
-      <h2 class="section-title">Services M3DS</h2>
-      <p class="section-subtitle">
-        Chaque projet part d’un besoin concret : optimiser un geste, clarifier une
-        interface, rendre un objet plus robuste ou plus lisible. On construit
-        ensemble la bonne solution, sans surcouche inutile.
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Modélisation 3D, NFC & Interfaces<br>pour des solutions sur mesure.</h1>
+    <p>
+      M3DS conçoit des objets, outils et interfaces adaptés à votre usage réel :
+      modélisation 3D, accessoires NFC, interfaces VITRIA et projets personnalisés.
+    </p>
+    <a href="#contact" class="btn">Discuter d’un projet</a>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Services</h2>
+    <p class="subtitle">
+      Des solutions concrètes, pensées pour durer et adaptées à votre contexte.
+    </p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Modélisation & impression 3D</h3>
+        <p>Pièces fonctionnelles, prototypes, accessoires, objets personnalisés.</p>
+      </div>
+
+      <div class="card">
+        <h3>NFC & objets connectés</h3>
+        <p>Intégration de tags NFC dans des supports physiques et workflows simples.</p>
+      </div>
+
+      <div class="card">
+        <h3>Interfaces VITRIA</h3>
+        <p>Interfaces web sobres, dédiées à un usage précis et maîtrisable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- A PROPOS -->
+  <section id="apropos">
+    <h2>À propos</h2>
+    <p class="subtitle">
+      Une présentation premium de votre activité. Remplacez ce texte dans Dreamweaver.
+    </p>
+
+    <div class="card">
+      <p>
+        Votre description professionnelle ici. Présentez votre approche, votre vision,
+        votre manière de travailler. Ce texte est un placeholder premium.
       </p>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Modélisation & impression 3D</h3>
-          <p>
-            Pièces fonctionnelles, accessoires, prototypes, éléments de signalétique
-            ou de branding. Conception orientée usage réel, tolérances et contraintes
-            de fabrication intégrées dès le départ.
-          </p>
-          <div class="pill">
-            <span class="pill-dot"></span>
-            FDM · PLA / PETG · petites séries
-          </div>
-        </article>
-        <article class="card">
-          <h3>NFC & objets connectés</h3>
-          <p>
-            Intégration de tags NFC dans des supports physiques : médailles, badges,
-            accessoires, dispositifs de suivi ou d’identification. Scénarios pensés
-            pour être simples à utiliser au quotidien.
-          </p>
-          <div class="pill">
-            <span class="pill-dot"></span>
-            Tags, lecteurs, scénarios d’usage
-          </div>
-        </article>
-        <article class="card" id="vitria">
-          <h3>Interfaces VITRIA</h3>
-          <p>
-            Interfaces web sobres et dédiées à un usage précis : écrire, lire,
-            suivre, piloter. Pas de sur‑fonction, juste ce qu’il faut pour que
-            l’outil reste clair et maîtrisable.
-          </p>
-          <div class="pill">
-            <span class="pill-dot"></span>
-            Web · desktop · scénarios ciblés
-          </div>
-        </article>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projets">
-      <h2 class="section-title">Projets & approche</h2>
-      <p class="section-subtitle">
-        L’objectif : des solutions qui tiennent dans le temps, documentées,
-        reproductibles, et que tu peux réellement t’approprier. On avance par
-        itérations courtes, avec des validations claires à chaque étape.
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <p class="subtitle">Trois projets représentatifs. Remplacez les images.</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Projet 1</h3>
+        <p>Description du projet. Placeholder premium.</p>
+      </div>
+      <div class="card">
+        <h3>Projet 2</h3>
+        <p>Description du projet. Placeholder premium.</p>
+      </div>
+      <div class="card">
+        <h3>Projet 3</h3>
+        <p>Description du projet. Placeholder premium.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <h2>Galerie photos</h2>
+    <p class="subtitle">Ajoutez vos images d’impressions 3D ou projets.</p>
+
+    <div class="gallery">
+      <img src="placeholder1.jpg" alt="Image placeholder">
+      <img src="placeholder2.jpg" alt="Image placeholder">
+      <img src="placeholder3.jpg" alt="Image placeholder">
+      <img src="placeholder4.jpg" alt="Image placeholder">
+    </div>
+  </section>
+
+  <!-- TARIFS -->
+  <section id="tarifs">
+    <h2>Tarifs</h2>
+    <p class="subtitle">Exemples de forfaits. À adapter selon vos besoins.</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Prototype</h3>
+        <p>À partir de <strong>XX €</strong></p>
+      </div>
+      <div class="card">
+        <h3>Projet complet</h3>
+        <p>À partir de <strong>XX €</strong></p>
+      </div>
+      <div class="card">
+        <h3>Interface VITRIA</h3>
+        <p>À partir de <strong>XX €</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>FAQ</h2>
+    <p class="subtitle">Questions fréquentes. Remplacez selon vos besoins.</p>
+
+    <div class="card">
+      <h3>Comment fonctionne un projet ?</h3>
+      <p>Réponse placeholder premium.</p>
+    </div>
+
+    <div class="card">
+      <h3>Quels sont les délais ?</h3>
+      <p>Réponse placeholder premium.</p>
+    </div>
+
+    <div class="card">
+      <h3>Quels fichiers fournissez-vous ?</h3>
+      <p>Réponse placeholder premium.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+
+    <div class="contact-box">
+      <p>Email : <strong>contact@votre-entreprise.fr</strong></p>
+      <p>Téléphone : <strong>+33 X XX XX XX XX</strong></p>
+      <p>Adresse : <strong>Votre adresse professionnelle ici</strong></p>
+    </div>
+
+    <div class="contact-box">
+      <p><strong>WhatsApp :</strong> +33 X XX XX XX XX</p>
+    </div>
+  </section>
+
+  <!-- MENTIONS -->
+  <section id="mentions">
+    <h2>Mentions légales</h2>
+    <p class="subtitle">Version simple. À compléter selon votre statut.</p>
+
+    <div class="card">
+      <p>
+        Micro‑entreprise – SIREN : XXXXXXXX – Adresse professionnelle ici.
+        Ce texte est un placeholder premium.
       </p>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Prototypage rapide</h3>
-          <p>
-            Itérations courtes, ajustements fins, tests en situation réelle. On
-            valide ensemble avant de figer une version.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Solutions documentées</h3>
-          <p>
-            Fichiers organisés, paramètres clairs, logique explicite. Tu sais ce qui
-            a été fait, et pourquoi.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Dialogue direct</h3>
-          <p>
-            Pas d’intermédiaire : on discute de ton contexte, de tes contraintes et
-            on ajuste le projet en conséquence.
-          </p>
-        </article>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact">
-      <h2 class="section-title">Contact & infos</h2>
-      <div class="contact">
-        <div>
-          <p class="section-subtitle">
-            Un besoin précis, une idée à tester, un objet à renforcer ou une
-            interface à clarifier ? Tu peux m’expliquer ton contexte en quelques
-            lignes, et on voit ensemble ce qui est possible.
-          </p>
-          <div class="contact-box">
-            <div class="contact-row">
-              Email : <span>contact@m3ds.fr</span> (exemple)
-            </div>
-            <div class="contact-row">
-              Localisation : <span>Rennes, Bretagne</span>
-            </div>
-            <div class="contact-row">
-              Statut : <span>Micro‑entreprise déclarée</span>
-            </div>
-            <div class="badge-local">
-              <span>📍</span> Projets locaux & à distance
-            </div>
-          </div>
-        </div>
-        <div class="contact-box">
-          <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.7rem;">
-            Pour un premier échange, tu peux préparer :
-          </p>
-          <ul style="font-size:0.85rem; color:var(--muted); padding-left:1.1rem; margin-bottom:0.8rem;">
-            <li>Une phrase simple sur ton besoin</li>
-            <li>Quelques photos ou croquis si tu en as</li>
-            <li>Les contraintes principales (budget, délais, usage)</li>
-          </ul>
-          <p style="font-size:0.85rem; color:var(--muted);">
-            L’idée n’est pas d’avoir un cahier des charges parfait, mais une base
-            concrète pour construire quelque chose d’utile.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
+</main>
 
-  <footer>
-    <div>© <span id="year"></span> M3DS – Modélisation 3D, NFC & interfaces.</div>
-    <div>Site statique hébergé sur GitHub Pages.</div>
-  </footer>
+<footer>
+  © <span id="year"></span> M3DS – Modélisation 3D, NFC & Interfaces.
+</footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
