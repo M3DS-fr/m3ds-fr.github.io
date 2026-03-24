@@ -238,6 +238,7 @@
 }
 
         .avis-carousel-slide {
+            height: 100%; /* force une hauteur stable */
             display: flex;
             flex-wrap: nowrap;
             transition: transform 0.5s ease;
@@ -245,6 +246,7 @@
         }
 
         .avis-card {
+            min-height: 240px; /* garantit un bloc stable */
             flex: 0 0 100%;
             background: white;
             padding: 30px;
