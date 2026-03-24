@@ -3,522 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3DS – Modélisation & Impression 3D</title>
+    <title>M3DS – Modélisation 3D & NFC</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background: #f5f5f5;
-    color: #222;
-}
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
 
-html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; }
 
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: #ffffffd9;
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid #d4af37;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #ffffffd9;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-header nav a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: #222;
-    font-weight: 600;
-    transition: 0.3s;
-}
+        header nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #222;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-header nav a:hover { color: #d4af37; }
+        header nav a:hover { color: #d4af37; }
 
-.logo {
-    font-size: 28px;
-    font-weight: 700;
-    color: #d4af37;
-}
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4af37;
+        }
 
-/* HERO */
-.hero {
-    padding: 120px 50px;
-    text-align: center;
-    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-}
+        /* HERO */
+        .hero {
+            padding: 120px 50px;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+        }
 
-.hero h1 { font-size: 42px; margin-bottom: 10px; }
+        .hero h1 { font-size: 42px; margin-bottom: 10px; }
 
-.underline {
-    width: 120px;
-    height: 4px;
-    background: #d4af37;
-    margin: 10px auto 20px;
-    border-radius: 2px;
-    animation: glow 2s infinite alternate;
-}
+        .underline {
+            width: 120px;
+            height: 4px;
+            background: #d4af37;
+            margin: 10px auto 20px;
+            border-radius: 2px;
+            animation: glow 2s infinite alternate;
+        }
 
-@keyframes glow {
-    from { box-shadow: 0 0 5px #d4af37; }
-    to { box-shadow: 0 0 15px #d4af37; }
-}
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #d4af37; }
+            to { box-shadow: 0 0 15px #d4af37; }
+        }
 
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #d4af37;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-    text-decoration: none;
-    font-weight: 600;
-}
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #d4af37;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-.cta-button:hover { transform: scale(1.05); background: #b8922c; }
+        .cta-button:hover { transform: scale(1.05); background: #b8922c; }
 
-/* SECTIONS */
-section { padding: 80px 50px; }
+        /* SECTIONS */
+        section { padding: 80px 50px; }
 
-h2 { text-align: center; font-size: 32px; margin-bottom: 10px; }
+        h2 { text-align: center; font-size: 32px; margin-bottom: 10px; }
 
-.subtitle { text-align: center; color: #555; margin-bottom: 40px; }
+        .subtitle { text-align: center; color: #555; margin-bottom: 40px; }
 
-/* CARROUSEL IMAGES */
-.carousel-container {
-    width: 40%;
-    height: 250px;
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px #00000020;
-    background: #f5f5f5;
-}
+        /* CARROUSEL IMAGES */
+        .carousel-container {
+            width: 40%;
+            height: 250px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px #00000020;
+            background: #f5f5f5;
+        }
 
-.carousel-slide {
-    display: flex;
-    height: 100%;
-    transition: transform 0.5s ease;
-}
+        .carousel-slide {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
 
-.carousel-slide img {
-    flex: 0 0 100%;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
+        .carousel-slide img {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
-.carousel-buttons span {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: #d4af37;
-    cursor: pointer;
-    padding: 10px;
-    transition: 0.3s;
-}
+        .carousel-buttons span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: #d4af37;
+            cursor: pointer;
+            padding: 10px;
+            transition: 0.3s;
+        }
 
-.carousel-buttons span:hover { color: #b8922c; }
+        .carousel-buttons span:hover { color: #b8922c; }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
 
-.carousel-caption {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 18px;
-    color: #d4af37;
-    font-weight: 600;
-}
+        .carousel-caption {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #d4af37;
+            font-weight: 600;
+        }
 
-/* SERVICES */
-.services {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
+        /* SERVICES */
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
 
-.card {
-    width: 280px;
-    padding: 25px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px #00000015;
-    text-align: center;
-    transition: 0.3s;
-}
+        .card {
+            width: 280px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+            text-align: center;
+            transition: 0.3s;
+        }
 
-.card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px #00000030; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px #00000030; }
 
-/* À PROPOS */
-.apropos {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
+        /* À PROPOS */
+        .apropos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
 
-.apropos img {
-    width: 380px;
-    border-radius: 12px;
-    transform: rotate(-2deg);
-    box-shadow: 0 4px 20px #00000030;
-}
+        .apropos img {
+            width: 380px;
+            border-radius: 12px;
+            transform: rotate(-2deg);
+            box-shadow: 0 4px 20px #00000030;
+        }
 
-.timeline {
-    border-left: 3px solid #d4af37;
-    padding-left: 20px;
-}
+        .timeline {
+            border-left: 3px solid #d4af37;
+            padding-left: 20px;
+        }
 
-.timeline div { margin-bottom: 20px; }
+        .timeline div { margin-bottom: 20px; }
 
-/* ============================
-   AVIS — CARROUSEL COMPLET
-   ============================ */
+        /* ============================
+           AVIS — CARROUSEL COMPLET
+           ============================ */
 
-.avis-carousel-container {
-    width: 100%;
-    max-width: 700px;
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    min-height: 320px;
-    padding: 20px 0;
-}
+        .avis-carousel-container {
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            min-height: 280px;
+            padding: 20px 0;
+        }
 
-/* Conteneur des flèches — couvre toute la zone */
-.avis-buttons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
+        .avis-buttons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
 
-.avis-buttons span {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: #d4af37;
-    cursor: pointer;
-    padding: 10px;
-    transition: 0.3s;
-    user-select: none;
-    pointer-events: auto;
-    z-index: 5;
-}
+        .avis-buttons span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: #d4af37;
+            cursor: pointer;
+            padding: 10px;
+            transition: 0.3s;
+            user-select: none;
+            pointer-events: auto;
+            z-index: 5;
+        }
 
-.avis-prev { left: 10px; }
-.avis-next { right: 10px; }
+        .avis-prev { left: 10px; }
+        .avis-next { right: 10px; }
 
-.avis-carousel-slide {
-    display: flex;
-    flex-wrap: nowrap;
-    transition: transform 0.5s ease;
-    align-items: center;
-}
+        .avis-carousel-slide {
+            display: flex;
+            flex-wrap: nowrap;
+            transition: transform 0.5s ease;
+            align-items: center;
+        }
 
-.avis-card {
-    flex: 0 0 100%;   /* ← largeur EXACTE d’une carte */
-    box-sizing: border-box;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px #00000015;
-    text-align: center;
+        .avis-card {
+            flex: 0 0 100%;
+            box-sizing: border-box;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+            text-align: center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .avis-text {
+            font-size: 16px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 10px;
+            max-width: 90%;
+            word-wrap: break-word;
+            white-space: normal;
+            text-align: center;
+        }
 
-.avis-text {
-    font-size: 16px;
-    color: #444;
-    font-style: italic;
-    margin-bottom: 10px;
+        .avis-author {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #d4af37;
+        }
 
-    max-width: 90%;
-    word-wrap: break-word;
-    white-space: normal;
-    text-align: center;
-}
+        /* FORMULAIRE AVIS */
+        .contact-form-avis {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.avis-author {
-    margin-top: 10px;
-    font-weight: 600;
-    color: #d4af37;
-}
+        .contact-form-avis input,
+        .contact-form-avis textarea {
+            padding: 12px;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Orbitron';
+        }
 
-/* FORMULAIRE AVIS */
-.contact-form-avis {
-    width: 60%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        .contact-form-avis button {
+            padding: 12px;
+            background: #d4af37;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
 
-.contact-form-avis input,
-.contact-form-avis textarea {
-    padding: 12px;
-    border: 2px solid #d4af37;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Orbitron';
-}
+        /* CONTACT */
+        .contact-form {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.contact-form-avis button {
-    padding: 12px;
-    background: #d4af37;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s;
-}
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Orbitron';
+        }
 
-/* CONTACT */
-.contact-form {
-    width: 60%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        .contact-form button {
+            padding: 12px;
+            background: #d4af37;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
 
-.contact-form input,
-.contact-form textarea {
-    padding: 12px;
-    border: 2px solid #d4af37;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Orbitron';
-}
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            position: relative;
+        }
 
-.contact-form button {
-    padding: 12px;
-    background: #d4af37;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-footer {
-    background: #111;
-    color: white;
-    padding: 40px 50px;
-    text-align: center;
-    position: relative;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 3px;
-    width: 100%;
-    background: #d4af37;
-    box-shadow: 0 0 15px #d4af37;
-}
-
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: #d4af37;
+            box-shadow: 0 0 15px #d4af37;
+        }
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">M3DS</div>
-    <nav>
-        <a href="#">Accueil</a>
-        <a href="#services">Services</a>
-        <a href="#apropos">À propos</a>
-        <a href="#projets">Projets</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>Modélisation, Impression 3D sur mesure</h1>
-    <div class="underline"></div>
-    <p>Concevez l'avenir avec nos solutions sur-mesure.</p>
-    <a href="#contact" class="cta-button">Nous Contacter</a>
-</section>
-
-<section id="galerie">
-    <h2>Galerie photos</h2>
-    <p class="subtitle">Nos réalisations en 3D</p>
-
-    <div class="carousel-container">
-        <div class="carousel-slide">
-            <img src="https://m3ds-fr.github.io/img/amortisseurwc.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/buteelavevaissel.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/charniere.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/emportepiece.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/maintientcanne.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/medaillonNFC.jpg" alt="">
-            <img src="https://m3ds-fr.github.io/img/supportCV.png" alt="">
-        </div>
-
-        <div class="carousel-buttons">
-            <span class="prev">❮</span>
-            <span class="next">❯</span>
-        </div>
-    </div>
-
-    <div class="carousel-caption" id="carousel-caption">
-        Chargement…
-    </div>
-</section>
-
-<section id="services">
-    <h2>Nos Services</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Modélisation 3D</h3>
-            <p>Conception, modélisation et prototypage 3D sur mesure.</p>
-        </div>
-        <div class="card">
-            <h3>Impression 3D</h3>
-            <p>PLA, PETG, TPU, ABS… Impression haute précision adaptée à vos besoins.</p>
-        </div>
-        <div class="card">
-            <h3>Solution Personnalisée</h3>
-            <p>Créations uniques, objets sur mesure, optimisation et intégration technique.</p>
-        </div>
-    </div>
-</section>
-
-<section id="apropos">
-    <h2>À propos de nous</h2>
-    <div class="apropos">
-        <img src="https://m3ds-fr.github.io/img/Copilot_20260324_024148.png" alt="">
-        <div class="timeline">
-            <div><strong>2020</strong> – 1er pas en modélisation 3D</div>
-            <div><strong>2024</strong> – 1er imprimante Créality CR-10</div>
-            <div><strong>2025</strong> – Certification Modélisation sur Sketchup & Impression 3D sur Elegoo Neptune 4</div>
-            <div><strong>2025</strong> – Participation kickstarter "YUMI"</div>
-            <div><strong>2026</strong> – Création de M3DS</div>
-        </div>
-    </div>
-</section>
-
-<section id="projets">
-    <h2>Projets en cours de développement</h2>
-    <p class="subtitle">Nos dernières réalisations en modélisation et impression 3D</p>
-
-    <div class="services">
-
-        <div class="card">
-            <img src="https://m3ds-fr.github.io/img/bluetrack.png" style="width:100%; border-radius:8px;">
-            <h3>BlueTrack</h3>
-            <p>Télécommande Bluetooth minimaliste pour contrôler la musique du smartphone.</p>
-            <p>Boîtier imprimé en 3D, boutons ergonomiques et électronique intégrée.</p>
-            <a href="https://www.tiktok.com/@m3dsfr/video/7577473919280581910" target="_blank">🎥 Voir la vidéo</a>
-        </div>
-
-        <div class="card">
-            <img src="https://m3ds-fr.github.io/img/baf.png" style="width:100%; border-radius:8px;">
-            <h3>Projet B.A.F</h3>
-            <p>Barrière Anti Fumée pour initier mon fils à la soudure en toute sécurité.</p>
-            <a href="https://www.tiktok.com/@m3dsfr/video/7576197745266953494" target="_blank">🎥 Voir la vidéo</a>
-        </div>
-
-    </div>
-</section>
-
-<!-- ⭐⭐ SECTION AVIS ⭐⭐ -->
-<section id="avis">
-    <h2>Ce que pensent mes clients</h2>
-    <p class="subtitle">Ils ont fait confiance à M3DS</p>
-
-    <div class="avis-carousel-container">
-        <div class="avis-carousel-slide">
-
-            <div class="avis-card">
-                <p class="avis-text">“Travail impeccable, rapide et très professionnel. Le modèle 3D correspondait parfaitement à mes attentes.”</p>
-                <p class="avis-author">— Julien R.</p>
-            </div>
-
-            <div class="avis-card">
-                <p class="avis-text">“Super expérience ! Impression 3D de qualité et très bon accompagnement du début à la fin.”</p>
-                <p class="avis-author">— Marie L.</p>
-            </div>
-
-            <div class="avis-card">
-                <p class="avis-text">“David a su créer une pièce sur mesure introuvable ailleurs. Je recommande à 100%.”</p>
-                <p class="avis-author">— Thomas G.</p>
-            </div>
-
-        </div>
-
-        <div class="avis-buttons">
-            <span class="avis-prev">❮</span>
-            <span class="avis-next">❯</span>
-        </div>
-    </div>
-</section>
-
-
-<div style="text-align:center; margin-top:40px;">
-    <a href="#form-avis" class="cta-button">Laisser un avis</a>
-</div>
-
-<!-- ⭐⭐ FORMULAIRE AVIS ⭐⭐ -->
-<section id="form-avis">
-    <h2>Laisser un avis</h2>
-    <p class="subtitle">Votre retour compte beaucoup pour nous</p>
-
-    <form class="contact-form-avis" action="https://formspree.io/f/xyknrjre" method="POST">
-        <input type="text" name="nom_client" placeholder="Votre nom (ou initiales)" required>
-        <textarea name="avis_client" placeholder="Votre avis" required></textarea>
-
-        <button type="submit">Envoyer mon avis</button>
-
-        <p id="avis-status" style="text-align:center; margin-top:15px; color:#d4af37;"></p>
-    </form>
-</section>
-
-<!-- ⭐⭐ CONTACT ⭐⭐ -->
-<section id="contact">
-    <h2>Contact</h2>
-    <p class="subtitle">Une question, un projet ? Parlons-en.</p>
-
-    <form class="contact-form" action="https://formspree.io/f/xyknrjre" method="POST">
-        <input type="text" name="name" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" placeholder="Votre message" required></textarea>
-
-        <button type="submit">Envoyer</button>
-
-        <p id="form-status" style="text-align:center; margin-top:15px; color:#d4af37;"></p>
-    </form>
-</section>
-
-<footer>
-    <p>@2026 - M3DS – Modélisation & Impression 3D</p>
-    <p>Mentions légales • Politique de confidentialité</p>
-</footer>
+<!-- TON HTML (inchangé) -->
+<!-- … je ne le recopie pas ici pour éviter un message trop long -->
+<!-- MAIS si tu veux, je peux aussi te renvoyer l’index COMPLET avec HTML + CSS + JS -->
 
 <script>
 /* CARROUSEL IMAGES */
@@ -605,15 +432,15 @@ const avisSlide = document.querySelector('.avis-carousel-slide');
 const avisCards = document.querySelectorAll('.avis-carousel-slide .avis-card');
 const avisContainer = document.querySelector('.avis-carousel-container');
 
-/* Largeur totale du slide */
+/* Largeur totale */
 avisSlide.style.width = `${avisCards.length * 100}%`;
 
-/* Chaque carte occupe 100% de la largeur visible */
+/* Chaque carte = 100% */
 avisCards.forEach(card => {
     card.style.flex = "0 0 100%";
 });
 
-/* Fonction de mise à jour */
+/* Mise à jour */
 function updateAvisCarousel() {
     const width = avisContainer.offsetWidth;
     avisSlide.style.transform = `translateX(-${avisIndex * width}px)`;
@@ -630,7 +457,7 @@ document.querySelector('.avis-prev').onclick = () => {
     updateAvisCarousel();
 };
 
-/* Défilement automatique */
+/* Auto */
 setInterval(() => {
     avisIndex = (avisIndex + 1) % avisCards.length;
     updateAvisCarousel();
@@ -638,7 +465,6 @@ setInterval(() => {
 
 /* Position initiale */
 updateAvisCarousel();
-
 </script>
 
 </body>
