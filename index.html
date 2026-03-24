@@ -115,30 +115,29 @@
 
         /* CARROUSEL */
         .carousel-container {
-            width: 40%;
-            height: 400px;
+            width: 40%; /* largeur réduite */
+            height: 250px;
             margin: auto;
             overflow: hidden;
             position: relative;
             border-radius: 12px;
             box-shadow: 0 4px 20px #00000020;
-            background: #000;
+            background: #f5f5f5;
         }
 
         .carousel-slide {
-    display: flex;
-    height: 100%;
-    transition: transform 0.5s ease;
-}
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
 
-.carousel-slide img {
-    flex: 0 0 100%;      /* 1 image = 100% de la largeur du carrousel */
-    width: 100%;
-    height: 100%;
-    object-fit: contain;   /* tu peux mettre "contain" si tu veux zéro recadrage */
-    background: #f5f5f5;
-}
-
+        .carousel-slide img {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f5f5f5;
+        }
 
         .carousel-buttons span {
             position: absolute;
@@ -158,6 +157,15 @@
 
         .prev { left: 10px; }
         .next { right: 10px; }
+
+        /* LÉGENDE */
+        .carousel-caption {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #d4af37;
+            font-weight: 600;
+        }
 
         /* SERVICES */
         .services {
@@ -293,19 +301,19 @@
 
     <div class="carousel-container">
         <div class="carousel-slide">
-            <img src="https://m3ds-fr.github.io/img/supportCV.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/emportepiece.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/charniere.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/amortisseurwc.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/medaillonNFC.jpg" alt="">
-            <img src="https://m3ds-fr.github.io/img/buteelavevaissel.png" alt="">
-            <img src="https://m3ds-fr.github.io/img/maintientcanne.png" alt="">
+            <img src="img/standCV.png" alt="">
+            <img src="img/emportepiece.png" alt="">
+            <img src="img/charniere.png" alt="">
         </div>
 
         <div class="carousel-buttons">
             <span class="prev">❮</span>
             <span class="next">❯</span>
         </div>
+    </div>
+
+    <div class="carousel-caption" id="carousel-caption">
+        Stand CV – Modèle 3D
     </div>
 </section>
 
@@ -330,7 +338,7 @@
 <section id="apropos">
     <h2>À propos de nous</h2>
     <div class="apropos">
-        <img src="https://m3ds-fr.github.io/img/Copilot_20260324_024148.png" alt="">
+        <img src="img/Copilot_20260324_024148.png" alt="">
         <div class="timeline">
             <div><strong>2020</strong> – 1er pas en modélisation 3D</div>
             <div><strong>2024</strong> – 1er imprimante Créality CR-10</div>
@@ -341,34 +349,30 @@
     </div>
 </section>
 
-<!-- SECTION PROJETS -->
 <section id="projets">
     <h2>Projets en cours de développement</h2>
     <p class="subtitle">Nos dernières réalisations en modélisation et impression 3D</p>
 
     <div class="services">
 
-        <!-- Projet Bluetrack -->
         <div class="card">
-            <img src="https://m3ds-fr.github.io/img/bluetrack.png" alt="Bluetrack" style="width:100%; border-radius:8px;">
+            <img src="img/bluetrack.png" style="width:100%; border-radius:8px;">
             <h3>BlueTrack</h3>
             <p>Télécommande Bluetooth minimaliste pour contrôler la musique du smartphone.</p>
             <p>Boîtier imprimé en 3D, boutons ergonomiques et électronique intégrée.</p>
             <a href="https://www.tiktok.com/@m3dsfr/video/7577473919280581910" target="_blank">🎥 Voir la vidéo</a>
         </div>
 
-        <!-- Projet BAF -->
         <div class="card">
-            <img src="https://m3ds-fr.github.io/img/baf.png" alt="Projet BAF" style="width:100%; border-radius:8px;">
+            <img src="img/baf.png" style="width:100%; border-radius:8px;">
             <h3>Projet B.A.F</h3>
-            <p>Le projet B.A.F (Barrière Anti Fumée) est né de l’envie d’initier mon fils à la soudure à l’étain tout en le protégeant.</p>
+            <p>Barrière Anti Fumée pour initier mon fils à la soudure en toute sécurité.</p>
             <a href="https://www.tiktok.com/@m3dsfr/video/7576197745266953494" target="_blank">🎥 Voir la vidéo</a>
         </div>
 
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
     <h2>Contact</h2>
     <p class="subtitle">Une question, un projet ? Parlons-en.</p>
@@ -395,8 +399,15 @@ let index = 0;
 const slide = document.querySelector('.carousel-slide');
 const images = document.querySelectorAll('.carousel-slide img');
 
+const captions = [
+    "Stand CV – Modèle 3D",
+    "Emporte-pièce personnalisé",
+    "Charnière imprimée en 3D"
+];
+
 function updateCarousel() {
     slide.style.transform = `translateX(-${index * 100}%)`;
+    document.getElementById("carousel-caption").innerText = captions[index];
 }
 
 document.querySelector('.next').onclick = () => {
@@ -409,7 +420,7 @@ document.querySelector('.prev').onclick = () => {
     updateCarousel();
 };
 
-/* FORMULAIRE FORMEE */
+/* FORMULAIRE */
 const form = document.querySelector(".contact-form");
 const statusTxt = document.getElementById("form-status");
 
