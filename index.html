@@ -587,25 +587,16 @@ avisForm.addEventListener("submit", async (e) => {
 
 
 /* ============================
-   CARROUSEL AVIS (OPTIMISÉ)
+   CARROUSEL AVIS (VERSION STABLE)
    ============================ */
 let avisIndex = 0;
 const avisSlide = document.querySelector('.avis-carousel-slide');
 const avisCards = document.querySelectorAll('.avis-carousel-slide .avis-card');
-const avisContainer = document.querySelector('.avis-carousel-container');
 
-/* Largeur totale du slide */
-avisSlide.style.width = `${avisCards.length * 100}%`;
-
-/* Chaque carte = largeur exacte du conteneur */
-avisCards.forEach(card => {
-    card.style.flex = "0 0 100%";
-});
-
-/* Fonction de mise à jour */
+/* Chaque carte = 100% (déjà dans le CSS, on ne touche pas ici) */
+/* Déplacement en pourcentage, comme pour le carrousel images */
 function updateAvisCarousel() {
-    const width = avisContainer.offsetWidth;
-    avisSlide.style.transform = `translateX(-${avisIndex * width}px)`;
+    avisSlide.style.transform = `translateX(-${avisIndex * 100}%)`;
 }
 
 /* Boutons */
