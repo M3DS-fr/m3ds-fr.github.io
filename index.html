@@ -447,7 +447,7 @@ footer::before {
 
     </div>
 </section>
-<!-- ⭐⭐ SECTION AVIS ⭐⭐ -->
+
 <!-- ⭐⭐ SECTION AVIS ⭐⭐ -->
 <section id="avis">
     <h2>Ce que pensent mes clients</h2>
@@ -606,17 +606,21 @@ const avisSlide = document.querySelector('.avis-carousel-slide');
 const avisCards = document.querySelectorAll('.avis-carousel-slide .avis-card');
 const avisContainer = document.querySelector('.avis-carousel-container');
 
-/* Fix : largeur totale + largeur de chaque carte */
+/* Largeur totale du slide */
 avisSlide.style.width = `${avisCards.length * 100}%`;
+
+/* Chaque carte occupe 100% de la largeur visible */
 avisCards.forEach(card => {
     card.style.flex = "0 0 100%";
 });
 
+/* Fonction de mise à jour */
 function updateAvisCarousel() {
     const width = avisContainer.offsetWidth;
     avisSlide.style.transform = `translateX(-${avisIndex * width}px)`;
 }
 
+/* Boutons */
 document.querySelector('.avis-next').onclick = () => {
     avisIndex = (avisIndex + 1) % avisCards.length;
     updateAvisCarousel();
@@ -627,11 +631,14 @@ document.querySelector('.avis-prev').onclick = () => {
     updateAvisCarousel();
 };
 
-/* Défilement automatique des avis */
+/* Défilement automatique */
 setInterval(() => {
     avisIndex = (avisIndex + 1) % avisCards.length;
     updateAvisCarousel();
 }, 5000);
+
+/* Position initiale */
+updateAvisCarousel();
 
 </script>
 
