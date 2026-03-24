@@ -193,8 +193,8 @@
     margin: auto;
     overflow: hidden;
     position: relative;
-    min-height: 300px; /* ← augmente la hauteur visible */
-    padding: 10px 0;
+    min-height: 320px; /* augmente la hauteur */
+    padding: 20px 0;
 }
 
 .avis-carousel-slide {
@@ -208,17 +208,17 @@
     flex-shrink: 0;
     box-sizing: border-box;
     background: white;
-    padding: 25px;
+    padding: 30px; /* un peu plus de padding */
     border-radius: 12px;
     box-shadow: 0 4px 15px #00000015;
     text-align: center;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100%; /* ← force l'avis à occuper toute la hauteur */
+    justify-content: center; /* centre verticalement */
+    align-items: center;      /* centre horizontalement */
+    height: 100%;             /* occupe toute la hauteur du conteneur */
 }
-
 
 .avis-text {
     font-size: 16px;
