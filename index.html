@@ -183,6 +183,73 @@
 
         .timeline div { margin-bottom: 20px; }
 
+/* ============================
+   AVIS — CARROUSEL COMPLET
+   ============================ */
+
+.avis-carousel-container {
+    width: 100%;
+    max-width: 700px;       /* largeur idéale */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    min-height: 220px;      /* hauteur minimum pour afficher le contenu */
+    padding: 10px 0;
+}
+
+.avis-carousel-slide {
+    display: flex;
+    flex-wrap: nowrap;      /* IMPORTANT : les avis restent sur une seule ligne */
+    transition: transform 0.5s ease;
+}
+
+.avis-card {
+    min-width: 100%;        /* chaque avis occupe 100% de la largeur visible */
+    flex-shrink: 0;         /* empêche la compression */
+    box-sizing: border-box;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+    text-align: center;
+
+    display: flex;          /* pour centrer verticalement */
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avis-text {
+    font-size: 16px;
+    color: #444;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.avis-author {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #d4af37;
+}
+
+/* Boutons du carrousel */
+.avis-buttons span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: #d4af37;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.avis-buttons span:hover {
+    color: #b8922c;
+}
+
+.avis-prev { left: 10px; }
+.avis-next { right: 10px; }
 
 
         /* FORMULAIRE AVIS */
