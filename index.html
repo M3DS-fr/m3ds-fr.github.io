@@ -1,433 +1,316 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>M3DS – Modélisation 3D, NFC & Interfaces</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="M3DS – Modélisation 3D, impression, NFC et interfaces sur mesure." />
-  <style>
-    :root {
-      --bg: #FAFAF8;
-      --bg-alt: #FFFFFF;
-      --border: #E6E4DF;
-      --text: #2A2A2A;
-      --muted: #6F6F6F;
-      --accent: #C8A97E;
-      --accent-light: #E8DCC8;
-      --shadow: rgba(0,0,0,0.06);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3DS – Modélisation 3D & NFC</title>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    <!-- Typo Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 
-    /* Header */
-    header {
-      background: var(--bg-alt);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-    .nav-links a:hover {
-      color: var(--accent);
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
 
-    .btn {
-      padding: 0.55rem 1.1rem;
-      background: var(--accent);
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #ffffffd9;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    /* Layout */
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-    }
+        header nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #222;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-    /* Hero */
-    .hero {
-      background: var(--bg-alt);
-      padding: 3rem 2rem;
-      border-radius: 14px;
-      box-shadow: 0 4px 20px var(--shadow);
-      margin-bottom: 3rem;
-    }
-    .hero h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 40rem;
-      margin-bottom: 1.5rem;
-    }
+        header nav a:hover {
+            color: #d4af37;
+        }
 
-    /* Sections */
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      max-width: 40rem;
-    }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4af37;
+        }
 
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
+        /* HERO */
+        .hero {
+            padding: 120px 50px;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+        }
 
-    .card {
-      background: var(--bg-alt);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 16px var(--shadow);
-    }
-    .card h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
 
-    /* Contact */
-    .contact-box {
-      background: var(--bg-alt);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 16px var(--shadow);
-      margin-bottom: 1rem;
-    }
+        .hero .underline {
+            width: 120px;
+            height: 4px;
+            background: #d4af37;
+            margin: 10px auto 20px;
+            border-radius: 2px;
+            animation: glow 2s infinite alternate;
+        }
 
-    /* --- CARROUSEL AUTO-ADAPTATIF --- */
-    .carousel {
-      position: relative;
-      width: 100%;
-      max-width: 250px;      /* largeur contrôlée */
-      margin: 0 auto 1rem;   /* centré */
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px var(--shadow);
-      transition: height 0.3s ease; /* hauteur auto */
-    }
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #d4af37; }
+            to { box-shadow: 0 0 15px #d4af37; }
+        }
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.4s ease;
-    }
+        .hero button {
+            padding: 12px 25px;
+            background: #d4af37;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
 
-    .carousel img {
-      width: 100%;
-      height: 250px;          /* hauteur auto */
-      flex-shrink: 0;
-      border-radius: 12px;
-      object-fit: contain;   /* image entière */
-      background: var(--bg-alt);
-    }
+        .hero button:hover {
+            transform: scale(1.05);
+            background: #b8922c;
+        }
 
-    .carousel-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
+        /* SECTION TITLES */
+        section {
+            padding: 80px 50px;
+        }
 
-    .carousel-buttons button {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: none;
-      background: var(--border);
-      cursor: pointer;
-    }
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
-    .carousel-buttons button.active {
-      background: var(--accent);
-    }
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 40px;
+        }
 
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
+        /* CARROUSEL */
+        .carousel {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 20px #00000020;
+        }
 
-  </style>
+        .carousel img {
+            width: 100%;
+            transition: 0.4s;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.03);
+        }
+
+        /* SERVICES */
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 280px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px #00000030;
+        }
+
+        /* À PROPOS */
+        .apropos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .apropos img {
+            width: 380px;
+            border-radius: 12px;
+            transform: rotate(-2deg);
+            box-shadow: 0 4px 20px #00000030;
+        }
+
+        .timeline {
+            border-left: 3px solid #d4af37;
+            padding-left: 20px;
+        }
+
+        .timeline div {
+            margin-bottom: 20px;
+        }
+
+        /* TARIFS */
+        .tarifs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .price {
+            width: 260px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+            text-align: center;
+        }
+
+        .price h3 {
+            color: #d4af37;
+        }
+
+        .price button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #d4af37;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: #d4af37;
+            box-shadow: 0 0 15px #d4af37;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-  <nav>
     <div class="logo">M3DS</div>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#apropos">À propos</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <a href="#contact" class="btn">Me contacter</a>
-  </nav>
+    <nav>
+        <a href="#">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#apropos">À propos</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<main>
+<section class="hero">
+    <h1>Modélisation 3D, NFC & Interfaces sur mesure</h1>
+    <div class="underline"></div>
+    <p>Concevez l'avenir avec nos solutions sur-mesure.</p>
+    <button>Nous Contacter</button>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Modélisation 3D, NFC & Interfaces<br>pour des solutions sur mesure.</h1>
-    <p>
-      M3DS conçoit des objets, outils et interfaces adaptés à votre usage réel :
-      modélisation 3D, accessoires NFC, interfaces VITRIA et projets personnalisés.
-    </p>
-    <a href="#contact" class="btn">Discuter d’un projet</a>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>Services</h2>
-    <p class="subtitle">
-      Des solutions concrètes, pensées pour durer et adaptées à votre contexte.
-    </p>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Modélisation & impression 3D</h3>
-        <p>Pièces fonctionnelles, prototypes, accessoires, objets personnalisés.</p>
-      </div>
-
-      <div class="card">
-        <h3>NFC & objets connectés</h3>
-        <p>Intégration de tags NFC dans des supports physiques et workflows simples.</p>
-      </div>
-
-      <div class="card">
-        <h3>Interfaces VITRIA</h3>
-        <p>Interfaces web sobres, dédiées à un usage précis et maîtrisable.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- A PROPOS -->
-  <section id="apropos">
-    <h2>À propos</h2>
-
-    <div class="card">
-      <p>
-       M3DS développe des solutions simples, propres et adaptées à l’usage réel : modélisation 3D, accessoires NFC et interfaces dédiées. J’avance par petites itérations, avec des validations rapides et un dialogue direct. Chaque projet est conçu pour être clair, durable et maîtrisable, sans complexité inutile.
-      </p>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <p class="subtitle">Nos projets en cours de création.</p>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>BlueTrack</h3>
-        <p>Télécommande bluetooth autonome pour voiture, vélo, etc...</p>
-        <a href="https://www.tiktok.com/@m3dsfr/video/7577473919280581910" 
-           target="_blank" 
-           style="color: var(--accent); text-decoration:none; font-weight:600;">
-          Voir la vidéo TikTok →
-        </a>
-      </div>
-
-      <div class="card">
-        <h3>Aspirateur à fumé intéligent</h3>
-        <p>Pour soudure à l'étain avec contrôle d'usure du filtre a charbon</p>
-        <a href="https://www.tiktok.com/@m3dsfr/video/7576197745266953494" 
-           target="_blank" 
-           style="color: var(--accent); text-decoration:none; font-weight:600;">
-          Voir la vidéo TikTok →
-        </a>
-      </div>
-
-      <div class="card">
-        <h3>Projet 3</h3>
-        <p>Description du projet. Placeholder premium.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERIE (CARROUSEL AUTO-ADAPTATIF) -->
-  <section id="galerie">
+<section>
     <h2>Galerie photos</h2>
-    <p class="subtitle">Nos projets de modélisation et d’impressions 3D.</p>
+    <p class="subtitle">Nos réalisations en 3D</p>
 
     <div class="carousel">
-      <div class="carousel-track" id="carousel-track">
-        <img src="https://m3ds-fr.github.io/standCV.png" alt="Projet 1">
-        <img src="https://m3ds-fr.github.io/charniere.png" alt="Charnière lit d'appoint IKEA">
-        <img src="https://m3ds-fr.github.io/amortisseurwc.png" alt="Projet 3">
-        <img src="https://m3ds-fr.github.io/emportepiece.png" alt="Projet 4">
-        <img src="https://m3ds-fr.github.io/supportcannevolet.png" alt="Projet 4">
-      </div>
+        <img src="https://via.placeholder.com/1200x600?text=Projet+M3DS" alt="Projet M3DS">
     </div>
+</section>
 
-    <div class="carousel-buttons" id="carousel-buttons"></div>
-  </section>
-
-  <!-- TARIFS -->
-  <section id="tarifs">
-    <h2>Tarifs</h2>
-    <p class="subtitle">Exemples de forfaits. À adapter selon vos besoins.</p>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Prototype</h3>
-        <p>À partir de <strong>XX €</strong></p>
-      </div>
-      <div class="card">
-        <h3>Projet complet</h3>
-        <p>À partir de <strong>XX €</strong></p>
-      </div>
-      <div class="card">
-        <h3>Interface VITRIA</h3>
-        <p>À partir de <strong>XX €</strong></p>
-      </div>
+<section id="services">
+    <h2>Nos Services</h2>
+    <div class="services">
+        <div class="card">
+            <h3>Modélisation 3D</h3>
+            <p>Conception et prototypage 3D.</p>
+        </div>
+        <div class="card">
+            <h3>Solutions NFC</h3>
+            <p>Technologie sans contact.</p>
+        </div>
+        <div class="card">
+            <h3>Interfaces UX/UI</h3>
+            <p>Design d'interfaces personnalisées.</p>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <h2>FAQ</h2>
-    <p class="subtitle">Questions fréquentes.</p>
-
-    <div class="card">
-      <h3>Comment fonctionne un projet ?</h3>
-      <p>Réponse placeholder premium.</p>
+<section id="apropos">
+    <h2>À propos de nous</h2>
+    <div class="apropos">
+        <img src="https://via.placeholder.com/400x300?text=Atelier+M3DS" alt="">
+        <div class="timeline">
+            <div><strong>2018</strong> – Création de M3DS</div>
+            <div><strong>2020</strong> – Expansion & Nouveaux Projets</div>
+            <div><strong>2024</strong> – Innovation & Expertise</div>
+        </div>
     </div>
+</section>
 
-    <div class="card">
-      <h3>Quels sont les délais ?</h3>
-      <p>Réponse placeholder premium.</p>
+<section id="tarifs">
+    <h2>Nos Tarifs</h2>
+    <div class="tarifs">
+        <div class="price">
+            <h3>Essentiel</h3>
+            <p>299€ – Projet simple</p>
+            <button>Voir l'offre</button>
+        </div>
+        <div class="price">
+            <h3>Avancé</h3>
+            <p>599€ – Standard</p>
+            <button>Voir l'offre</button>
+        </div>
+        <div class="price">
+            <h3>Premium</h3>
+            <p>999€ – Sur-mesure</p>
+            <button>Voir l'offre</button>
+        </div>
     </div>
-
-    <div class="card">
-      <h3>Quels fichiers fournissez-vous ?</h3>
-      <p>Réponse placeholder premium.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-
-    <div class="contact-box">
-      <p>Email : <strong>maker3dservices@gmail.com</strong></p>
-      <p>Téléphone : <strong>+33 7 69 18 71 24</strong></p>
-      <p>Adresse : <strong>Votre adresse professionnelle ici</strong></p>
-    </div>
-  </section>
-
-  <!-- MENTIONS -->
-  <section id="mentions">
-    <h2>Mentions légales</h2>
-
-    <div class="card">
-      <p><strong>Éditeur :</strong> M3DS – Maker 3D Services</p>
-      <p><strong>Contact :</strong> maker3dservices@gmail.com</p>
-      <p><strong>Hébergement :</strong> GitHub Pages</p>
-      <p><strong>Données personnelles :</strong> aucune donnée collectée.</p>
-      <p><strong>Propriété :</strong> contenus protégés, reproduction interdite.</p>
-    </div>
-  </section>
-
-</main>
+</section>
 
 <footer>
-  © <span id="year"></span> M3DS – Modélisation 3D, NFC & Interfaces.
+    <p>M3DS – Modélisation & Impression 3D</p>
+    <p>Mentions légales • Politique de confidentialité</p>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  /* --- CARROUSEL AUTO-ADAPTATIF --- */
-  const track = document.getElementById("carousel-track");
-  const buttonsContainer = document.getElementById("carousel-buttons");
-  const images = track.children;
-  const carousel = document.querySelector(".carousel");
-  let index = 0;
-
-  // Crée les boutons
-  for (let i = 0; i < images.length; i++) {
-    const btn = document.createElement("button");
-    if (i === 0) btn.classList.add("active");
-    btn.addEventListener("click", () => goToSlide(i));
-    buttonsContainer.appendChild(btn);
-  }
-
-  // Ajuste la hauteur du carrousel selon l’image affichée
-  function adjustHeight() {
-    const currentImage = images[index];
-    carousel.style.height = currentImage.offsetHeight + "px";
-  }
-
-  function goToSlide(i) {
-    index = i;
-    track.style.transform = `translateX(-${i * 100}%)`;
-    updateButtons();
-    adjustHeight();
-  }
-
-  function updateButtons() {
-    [...buttonsContainer.children].forEach((b, i) => {
-      b.classList.toggle("active", i === index);
-    });
-  }
-
-  // Ajuste la hauteur au chargement
-  window.addEventListener("load", adjustHeight);
-  window.addEventListener("resize", adjustHeight);
-</script>
 
 </body>
 </html>
