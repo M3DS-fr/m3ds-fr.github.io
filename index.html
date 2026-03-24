@@ -606,9 +606,8 @@ const avisSlide = document.querySelector('.avis-carousel-slide');
 const avisCards = document.querySelectorAll('.avis-carousel-slide .avis-card');
 const avisContainer = document.querySelector('.avis-carousel-container');
 
-
 /* Fix : largeur totale + largeur de chaque carte */
-avisSlide.style.transform = `translateX(-${avisIndex * avisCarouselContainer.offsetWidth}px)`;
+avisSlide.style.width = `${avisCards.length * 100}%`;
 avisCards.forEach(card => {
     card.style.flex = "0 0 100%";
 });
@@ -633,6 +632,7 @@ setInterval(() => {
     avisIndex = (avisIndex + 1) % avisCards.length;
     updateAvisCarousel();
 }, 5000);
+
 </script>
 
 </body>
