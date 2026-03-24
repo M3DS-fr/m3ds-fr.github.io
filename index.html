@@ -16,6 +16,10 @@
             color: #222;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* HEADER */
         header {
             display: flex;
@@ -74,18 +78,20 @@
             to { box-shadow: 0 0 15px #d4af37; }
         }
 
-        .hero button {
+        .cta-button {
+            display: inline-block;
             padding: 12px 25px;
             background: #d4af37;
-            border: none;
             color: white;
             font-size: 16px;
             cursor: pointer;
             border-radius: 5px;
             transition: 0.3s;
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        .hero button:hover {
+        .cta-button:hover {
             transform: scale(1.05);
             background: #b8922c;
         }
@@ -107,10 +113,10 @@
             margin-bottom: 40px;
         }
 
-        /* CARROUSEL RÉGLABLE */
+        /* CARROUSEL */
         .carousel-container {
-            width: 80%;              /* ← règle la largeur */
-            height: 400px;           /* ← règle la hauteur */
+            width: 80%;
+            height: 400px;
             margin: auto;
             overflow: hidden;
             position: relative;
@@ -128,7 +134,7 @@
         .carousel-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;       /* cover = image remplie sans déformation */
+            object-fit: cover;
         }
 
         .carousel-buttons span {
@@ -177,7 +183,6 @@
         .apropos {
             display: flex;
             justify-content: center;
-            align-align: center;
             gap: 40px;
             flex-wrap: wrap;
         }
@@ -196,37 +201,6 @@
 
         .timeline div {
             margin-bottom: 20px;
-        }
-
-        /* TARIFS */
-        .tarifs {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .price {
-            width: 260px;
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #00000015;
-            text-align: center;
-        }
-
-        .price h3 {
-            color: #d4af37;
-        }
-
-        .price button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #d4af37;
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
         }
 
         /* CONTACT */
@@ -308,7 +282,6 @@
     <div class="underline"></div>
     <p>Concevez l'avenir avec nos solutions sur-mesure.</p>
     <a href="#contact" class="cta-button">Nous Contacter</a>
-
 </section>
 
 <section id="galerie">
@@ -361,29 +334,34 @@
     </div>
 </section>
 
+<!-- SECTION PROJETS -->
 <section id="projets">
     <h2>Projets en cours de développement</h2>
     <p class="subtitle">Nos dernières réalisations en modélisation et impression 3D</p>
 
     <div class="services">
+
+        <!-- Projet Bluetrack -->
         <div class="card">
-            <img src="https://m3ds-fr.github.io/bluetrack.png" alt="Modèle Fusion 360" style="width:100%; border-radius:8px;">
+            <img src="https://m3ds-fr.github.io/bluetrack.png" alt="Bluetrack" style="width:100%; border-radius:8px;">
             <h3>BlueTrack</h3>
             <p>Télécommande Bluetooth minimaliste pour contrôler la musique du smartphone.</p>
-            <p>Boîtier imprimé en 3D, boutons ergonomiques et électronique intégrée..</p>
+            <p>Boîtier imprimé en 3D, boutons ergonomiques et électronique intégrée.</p>
             <a href="https://www.tiktok.com/@m3dsfr/video/7577473919280581910" target="_blank">🎥 Voir la vidéo</a>
         </div>
 
+        <!-- Projet BAF -->
         <div class="card">
-            <img src="https://m3ds-fr.github.io/baf.png" alt="Plaque gravée M3DS" style="width:100%; border-radius:8px;">
+            <img src="https://m3ds-fr.github.io/baf.png" alt="Projet BAF" style="width:100%; border-radius:8px;">
             <h3>Projet B.A.F</h3>
-            <p>Le projet B.A.F ou Barrière Anti Fumé. Et venu du fait que je voulais initier mon garçon.</p><p>A la soudure à l'étain et ainsi le protéger</p><p></p>
+            <p>Le projet B.A.F (Barrière Anti Fumée) est né de l’envie d’initier mon fils à la soudure à l’étain tout en le protégeant.</p>
             <a href="https://www.tiktok.com/@m3dsfr/video/7576197745266953494" target="_blank">🎥 Voir la vidéo</a>
         </div>
+
     </div>
 </section>
 
-
+<!-- CONTACT -->
 <section id="contact">
     <h2>Contact</h2>
     <p class="subtitle">Une question, un projet ? Parlons-en.</p>
