@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3DS – Modélisation 3D & Impression 3D</title>
+    <title>M3DS – Modélisation 3D & NFC</title>
 
     <!-- Typo Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
@@ -113,7 +113,7 @@
             margin-bottom: 40px;
         }
 
-        /* CARROUSEL */
+        /* CARROUSEL IMAGES */
         .carousel-container {
             width: 40%;
             height: 250px;
@@ -158,7 +158,6 @@
         .prev { left: 10px; }
         .next { right: 10px; }
 
-        /* LÉGENDE */
         .carousel-caption {
             text-align: center;
             margin-top: 10px;
@@ -214,31 +213,26 @@
             margin-bottom: 20px;
         }
 
-        /* AVIS CLIENTS */
-        #avis {
-            padding: 80px 50px;
+        /* AVIS — CARROUSEL */
+        .avis-carousel-container {
+            width: 60%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
         }
 
-        .avis-container {
+        .avis-carousel-slide {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            transition: transform 0.5s ease;
         }
 
         .avis-card {
-            width: 280px;
+            min-width: 100%;
             background: white;
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 4px 15px #00000015;
             text-align: center;
-            transition: 0.3s;
-        }
-
-        .avis-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px #00000030;
         }
 
         .avis-text {
@@ -253,8 +247,27 @@
             color: #d4af37;
         }
 
+        .avis-buttons span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: #d4af37;
+            cursor: pointer;
+            padding: 10px;
+            user-select: none;
+            transition: 0.3s;
+        }
+
+        .avis-buttons span:hover {
+            color: #b8922c;
+        }
+
+        .avis-prev { left: 10px; }
+        .avis-next { right: 10px; }
+
         /* FORMULAIRE AVIS */
-        #form-avis .contact-form-avis {
+        .contact-form-avis {
             width: 60%;
             margin: auto;
             display: flex;
@@ -262,8 +275,8 @@
             gap: 15px;
         }
 
-        #form-avis input,
-        #form-avis textarea {
+        .contact-form-avis input,
+        .contact-form-avis textarea {
             padding: 12px;
             border: 2px solid #d4af37;
             border-radius: 8px;
@@ -271,12 +284,7 @@
             font-family: 'Orbitron';
         }
 
-        #form-avis textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        #form-avis button {
+        .contact-form-avis button {
             padding: 12px;
             background: #d4af37;
             border: none;
@@ -285,11 +293,6 @@
             cursor: pointer;
             border-radius: 8px;
             transition: 0.3s;
-        }
-
-        #form-avis button:hover {
-            background: #b8922c;
-            transform: scale(1.05);
         }
 
         /* CONTACT */
@@ -310,11 +313,6 @@
             font-family: 'Orbitron';
         }
 
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
         .contact-form button {
             padding: 12px;
             background: #d4af37;
@@ -326,12 +324,6 @@
             transition: 0.3s;
         }
 
-        .contact-form button:hover {
-            background: #b8922c;
-            transform: scale(1.05);
-        }
-
-        /* FOOTER */
         footer {
             background: #111;
             color: white;
@@ -367,7 +359,7 @@
 </header>
 
 <section class="hero">
-    <h1>Modélisation & Impression 3D sur mesure</h1>
+    <h1>Modélisation 3D, NFC & Interfaces sur mesure</h1>
     <div class="underline"></div>
     <p>Concevez l'avenir avec nos solutions sur-mesure.</p>
     <a href="#contact" class="cta-button">Nous Contacter</a>
@@ -408,7 +400,7 @@
         </div>
         <div class="card">
             <h3>Impression 3D</h3>
-            <p>PLA, PETG, TPU, ABS… Impression haute précision adaptée à vos besoins.</p><p></p>
+            <p>PLA, PETG, TPU, ABS… Impression haute précision adaptée à vos besoins.</p>
         </div>
         <div class="card">
             <h3>Solution Personnalisée</h3>
@@ -449,26 +441,40 @@
             <img src="https://m3ds-fr.github.io/img/baf.png" style="width:100%; border-radius:8px;">
             <h3>Projet B.A.F</h3>
             <p>Barrière Anti Fumée pour initier mon fils à la soudure en toute sécurité.</p>
-            <a href="https://www.tiktok.com/@m3ds-fr/video/7576197745266953494" target="_blank">🎥 Voir la vidéo</a>
+            <a href="https://www.tiktok.com/@m3dsfr/video/7576197745266953494" target="_blank">🎥 Voir la vidéo</a>
         </div>
 
     </div>
 </section>
-
 <!-- ⭐⭐ SECTION AVIS CLIENTS ⭐⭐ -->
 <section id="avis">
     <h2>Ce que pensent mes clients</h2>
     <p class="subtitle">Ils ont fait confiance à M3DS</p>
 
-    <div class="avis-container">
+    <div class="avis-carousel-container">
+        <div class="avis-carousel-slide">
 
-        <div class="avis-card">
-            <p class="avis-text">“Soyez le premier à donner votre avis!”</p>
-            <p class="avis-author">— M3DS —</p>
+            <div class="avis-card">
+                <p class="avis-text">“Travail impeccable, rapide et très professionnel. Le modèle 3D correspondait parfaitement à mes attentes.”</p>
+                <p class="avis-author">— Julien R.</p>
+            </div>
+
+            <div class="avis-card">
+                <p class="avis-text">“Super expérience ! Impression 3D de qualité et très bon accompagnement du début à la fin.”</p>
+                <p class="avis-author">— Marie L.</p>
+            </div>
+
+            <div class="avis-card">
+                <p class="avis-text">“David a su créer une pièce sur mesure introuvable ailleurs. Je recommande à 100%.”</p>
+                <p class="avis-author">— Thomas G.</p>
+            </div>
+
         </div>
 
-        
-
+        <div class="avis-buttons">
+            <span class="avis-prev">❮</span>
+            <span class="avis-next">❯</span>
+        </div>
     </div>
 </section>
 
@@ -509,12 +515,12 @@
 </section>
 
 <footer>
-    <p>@ 2026 - M3DS – Modélisation & Impression 3D</p>
+    <p>@2026 - M3DS – Modélisation & Impression 3D</p>
     <p>Mentions légales • Politique de confidentialité</p>
 </footer>
 
 <script>
-/* CARROUSEL */
+/* CARROUSEL IMAGES */
 let index = 0;
 const slide = document.querySelector('.carousel-slide');
 const images = document.querySelectorAll('.carousel-slide img');
@@ -591,4 +597,32 @@ avisForm.addEventListener("submit", async (e) => {
         avisStatus.innerText = "Erreur lors de l'envoi. Réessayez.";
     }
 });
+
+/* CARROUSEL AVIS */
+let avisIndex = 0;
+const avisSlide = document.querySelector('.avis-carousel-slide');
+const avisCards = document.querySelectorAll('.avis-carousel-slide .avis-card');
+
+function updateAvisCarousel() {
+    avisSlide.style.transform = `translateX(-${avisIndex * 100}%)`;
+}
+
+document.querySelector('.avis-next').onclick = () => {
+    avisIndex = (avisIndex + 1) % avisCards.length;
+    updateAvisCarousel();
+};
+
+document.querySelector('.avis-prev').onclick = () => {
+    avisIndex = (avisIndex - 1 + avisCards.length) % avisCards.length;
+    updateAvisCarousel();
+};
+
+/* Défilement automatique */
+setInterval(() => {
+    avisIndex = (avisIndex + 1) % avisCards.length;
+    updateAvisCarousel();
+}, 5000);
 </script>
+
+</body>
+</html>
