@@ -193,6 +193,7 @@
 
         .avis-carousel-slide {
             display: flex;
+            flex-wrap: nowrap; /* FIX */
             width: 100%;
             overflow: hidden;
             transition: transform 0.5s ease;
@@ -200,6 +201,7 @@
 
         .avis-card {
             min-width: 100%;
+            flex-shrink: 0; /* FIX */
             box-sizing: border-box;
             background: white;
             padding: 25px;
@@ -414,20 +416,29 @@
     <p class="subtitle">Ils ont fait confiance à M3DS</p>
 
     <div class="avis-carousel-container">
-    <div class="avis-carousel-slide">
+        <div class="avis-carousel-slide">
 
-        <div class="avis-card"> Tet <p>Jean marc</p> </div>
-        <div class="avis-card"> … </div>
-        <div class="avis-card"> … </div>
+            <div class="avis-card">
+                <p class="avis-text">“Travail impeccable, rapide et très professionnel. Le modèle 3D correspondait parfaitement à mes attentes.”</p>
+                <p class="avis-author">— Julien R.</p>
+            </div>
 
-    </div>
+            <div class="avis-card">
+                <p class="avis-text">“Super expérience ! Impression 3D de qualité et très bon accompagnement du début à la fin.”</p>
+                <p class="avis-author">— Marie L.</p>
+            </div>
 
-    <div class="avis-buttons">
-        <span class="avis-prev">❮</span>
-        <span class="avis-next">❯</span>
-    </div>
-</div>
+            <div class="avis-card">
+                <p class="avis-text">“David a su créer une pièce sur mesure introuvable ailleurs. Je recommande à 100%.”</p>
+                <p class="avis-author">— Thomas G.</p>
+            </div>
 
+        </div>
+
+        <div class="avis-buttons">
+            <span class="avis-prev">❮</span>
+            <span class="avis-next">❯</span>
+        </div>
     </div>
 </section>
 
