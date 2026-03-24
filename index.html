@@ -184,9 +184,10 @@
         .timeline div { margin-bottom: 20px; }
 
         /* AVIS — CARROUSEL */
-        .avis-carousel-container {
+        /* AVIS — CARROUSEL */
+.avis-carousel-container {
     width: 100%;
-    max-width: 700px;
+    max-width: 700px; /* largeur idéale */
     margin: auto;
     overflow: hidden;
     position: relative;
@@ -194,41 +195,52 @@
 
 .avis-carousel-slide {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* IMPORTANT */
+    width: 100%;
     transition: transform 0.5s ease;
 }
 
+.avis-card {
+    min-width: 100%;
+    flex-shrink: 0; /* IMPORTANT */
+    box-sizing: border-box;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+    text-align: center;
+}
 
-        .avis-card {
-            min-width: 100%;
-            flex-shrink: 0; /* FIX */
-            box-sizing: border-box;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #00000015;
-            text-align: center;
-        }
+.avis-text {
+    font-size: 16px;
+    color: #444;
+    font-style: italic;
+}
 
-        .avis-text { font-size: 16px; color: #444; font-style: italic; }
+.avis-author {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #d4af37;
+}
 
-        .avis-author { margin-top: 15px; font-weight: 600; color: #d4af37; }
+.avis-buttons span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: #d4af37;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s;
+}
 
-        .avis-buttons span {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 40px;
-            color: #d4af37;
-            cursor: pointer;
-            padding: 10px;
-            transition: 0.3s;
-        }
+.avis-buttons span:hover {
+    color: #b8922c;
+}
 
-        .avis-buttons span:hover { color: #b8922c; }
+.avis-prev { left: 10px; }
+.avis-next { right: 10px; }
 
-        .avis-prev { left: 10px; }
-        .avis-next { right: 10px; }
 
         /* FORMULAIRE AVIS */
         .contact-form-avis {
