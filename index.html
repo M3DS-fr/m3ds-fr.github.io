@@ -126,16 +126,18 @@
         }
 
         .carousel-slide {
-            display: flex;
-            height: 100%;
-            transition: transform 0.5s ease;
-        }
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
 
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.carousel-slide img {
+    flex: 0 0 100%;      /* 1 image = 100% de la largeur du carrousel */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* tu peux mettre "contain" si tu veux zéro recadrage */
+}
+
 
         .carousel-buttons span {
             position: absolute;
