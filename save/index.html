@@ -314,6 +314,110 @@
             background: #d4af37;
             box-shadow: 0 0 15px #d4af37;
         }
+
+        /* ============================
+   VERSION SMARTPHONE (< 768px)
+   ============================ */
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header nav a {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    /* Carrousel images */
+    .carousel-container {
+        width: 90%;
+        height: 200px;
+    }
+
+    .carousel-buttons span {
+        font-size: 30px;
+    }
+
+    .carousel-caption {
+        font-size: 16px;
+    }
+
+    /* Services */
+    .card {
+        width: 90%;
+        margin: auto;
+    }
+
+    /* À propos */
+    .apropos {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .apropos img {
+        width: 90%;
+        margin-bottom: 20px;
+        transform: none;
+    }
+
+    .timeline {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    /* Carrousel AVIS */
+    .avis-carousel-container {
+        max-width: 95%;
+        min-height: 240px;
+    }
+
+    .avis-card {
+        padding: 20px;
+    }
+
+    .avis-text {
+        font-size: 14px;
+    }
+
+    .avis-buttons span {
+        font-size: 32px;
+    }
+
+    /* Formulaires */
+    .contact-form,
+    .contact-form-avis {
+        width: 90%;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form-avis input,
+    .contact-form-avis textarea {
+        font-size: 14px;
+    }
+
+    .contact-form button,
+    .contact-form-avis button {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
     </style>
 </head>
 <body>
