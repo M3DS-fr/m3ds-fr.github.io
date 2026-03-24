@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3DS – Modélisation 3D & Impression 3D</title>
+    <title>M3DS – Modélisation 3D & NFC</title>
 
     <!-- Typo Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
@@ -252,6 +252,185 @@
             font-weight: 600;
             color: #d4af37;
         }
+
+        /* FORMULAIRE AVIS */
+        #form-avis .contact-form-avis {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #form-avis input,
+        #form-avis textarea {
+            padding: 12px;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Orbitron';
+        }
+
+        #form-avis textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        #form-avis button {
+            padding: 12px;
+            background: #d4af37;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        #form-avis button:hover {
+            background: #b8922c;
+            transform: scale(1.05);
+        }
+
+        /* CONTACT */
+        .contact-form {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Orbitron';
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background: #d4af37;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #b8922c;
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: #d4af37;
+            box-shadow: 0 0 15px #d4af37;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">M3DS</div>
+    <nav>
+        <a href="#">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#apropos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Modélisation 3D, NFC & Interfaces sur mesure</h1>
+    <div class="underline"></div>
+    <p>Concevez l'avenir avec nos solutions sur-mesure.</p>
+    <a href="#contact" class="cta-button">Nous Contacter</a>
+</section>
+
+<section id="galerie">
+    <h2>Galerie photos</h2>
+    <p class="subtitle">Nos réalisations en 3D</p>
+
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="https://m3ds-fr.github.io/img/amortisseurwc.png" alt="">
+            <img src="https://m3ds-fr.github.io/img/buteelavevaissel.png" alt="">
+            <img src="https://m3ds-fr.github.io/img/charniere.png" alt="">
+            <img src="https://m3ds-fr.github.io/img/emportepiece.png" alt="">
+            <img src="https://m3ds-fr.github.io/img/maintientcanne.png" alt="">
+            <img src="https://m3ds-fr.github.io/img/medaillonNFC.jpg" alt="">
+            <img src="https://m3ds-fr.github.io/img/supportCV.png" alt="">
+        </div>
+
+        <div class="carousel-buttons">
+            <span class="prev">❮</span>
+            <span class="next">❯</span>
+        </div>
+    </div>
+
+    <div class="carousel-caption" id="carousel-caption">
+        Chargement…
+    </div>
+</section>
+
+<section id="services">
+    <h2>Nos Services</h2>
+    <div class="services">
+        <div class="card">
+            <h3>Modélisation 3D</h3>
+            <p>Conception, modélisation et prototypage 3D sur mesure.</p>
+        </div>
+        <div class="card">
+            <h3>Impression 3D</h3>
+            <p>PLA, PETG, TPU, ABS… Impression haute précision adaptée à vos besoins.</p><p></p>
+        </div>
+        <div class="card">
+            <h3>Solution Personnalisée</h3>
+            <p>Créations uniques, objets sur mesure, optimisation et intégration technique.</p>
+        </div>
+    </div>
+</section>
+
+<section id="apropos">
+    <h2>À propos de nous</h2>
+    <div class="apropos">
+        <img src="https://m3ds-fr.github.io/img/Copilot_20260324_024148.png" alt="">
+        <div class="timeline">
+            <div><strong>2020</strong> – 1er pas en modélisation 3D</div>
+            <div><strong>2024</strong> – 1er imprimante Créality CR-10</div>
+            <div><strong>2025</strong> – Certification Modélisation sur Sketchup & Impression 3D sur Elegoo Neptune 4</div>
+            <div><strong>2025</strong> – Participation kickstarter "YUMI"</div>
+            <div><strong>2026</strong> – Création de M3DS</div>
+        </div>
+    </div>
+</section>
+
 <section id="projets">
     <h2>Projets en cours de développement</h2>
     <p class="subtitle">Nos dernières réalisations en modélisation et impression 3D</p>
@@ -311,7 +490,7 @@
     <h2>Laisser un avis</h2>
     <p class="subtitle">Votre retour compte beaucoup pour nous</p>
 
-    <form class="contact-form" action="https://formspree.io/f/xyknrjre" method="POST">
+    <form class="contact-form-avis" action="https://formspree.io/f/xyknrjre" method="POST">
         <input type="text" name="nom_client" placeholder="Votre nom (ou initiales)" required>
         <textarea name="avis_client" placeholder="Votre avis" required></textarea>
 
@@ -360,67 +539,4 @@ const captions = [
 
 function updateCarousel() {
     slide.style.transform = `translateX(-${index * 100}%)`;
-    document.getElementById("carousel-caption").innerText = captions[index];
-}
-
-document.querySelector('.next').onclick = () => {
-    index = (index + 1) % images.length;
-    updateCarousel();
-};
-
-document.querySelector('.prev').onclick = () => {
-    index = (index - 1 + images.length) % images.length;
-    updateCarousel();
-};
-
-/* FORMULAIRE CONTACT */
-const form = document.querySelector(".contact-form");
-const statusTxt = document.getElementById("form-status");
-
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    statusTxt.innerText = "Envoi en cours...";
-
-    const data = new FormData(form);
-
-    const response = await fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-        statusTxt.innerText = "Message envoyé avec succès !";
-        form.reset();
-    } else {
-        statusTxt.innerText = "Erreur lors de l'envoi. Réessayez.";
-    }
-});
-
-/* FORMULAIRE AVIS */
-const avisForm = document.querySelector("#form-avis form");
-const avisStatus = document.getElementById("avis-status");
-
-avisForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    avisStatus.innerText = "Envoi en cours...";
-
-    const data = new FormData(avisForm);
-
-    const response = await fetch(avisForm.action, {
-        method: "POST",
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-        avisStatus.innerText = "Merci ! Votre avis a bien été envoyé.";
-        avisForm.reset();
-    } else {
-        avisStatus.innerText = "Erreur lors de l'envoi. Réessayez.";
-    }
-});
-</script>
-
-</body>
-</html>
+    document.getElementById("
