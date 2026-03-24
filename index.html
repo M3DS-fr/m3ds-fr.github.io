@@ -115,7 +115,7 @@
 
         /* CARROUSEL */
         .carousel-container {
-            width: 40%; /* largeur réduite */
+            width: 40%;
             height: 250px;
             margin: auto;
             overflow: hidden;
@@ -212,6 +212,45 @@
 
         .timeline div {
             margin-bottom: 20px;
+        }
+
+        /* AVIS CLIENTS */
+        #avis {
+            padding: 80px 50px;
+        }
+
+        .avis-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .avis-card {
+            width: 280px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .avis-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px #00000030;
+        }
+
+        .avis-text {
+            font-size: 16px;
+            color: #444;
+            font-style: italic;
+        }
+
+        .avis-author {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #d4af37;
         }
 
         /* CONTACT */
@@ -371,11 +410,37 @@
             <img src="https://m3ds-fr.github.io/img/baf.png" style="width:100%; border-radius:8px;">
             <h3>Projet B.A.F</h3>
             <p>Barrière Anti Fumée pour initier mon fils à la soudure en toute sécurité.</p>
-            <a href="https://www.tiktok.com/@m3dsfr/video/7576197745266953494" target="_blank">🎥 Voir la vidéo</a>
+            <a href="https://www.tiktok.com/@m3ds-fr/video/7576197745266953494" target="_blank">🎥 Voir la vidéo</a>
         </div>
 
     </div>
 </section>
+
+<!-- ⭐⭐ SECTION AVIS CLIENTS AJOUTÉE ICI ⭐⭐ -->
+<section id="avis">
+    <h2>Ce que pensent mes clients</h2>
+    <p class="subtitle">Ils ont fait confiance à M3DS</p>
+
+    <div class="avis-container">
+
+        <div class="avis-card">
+            <p class="avis-text">“Travail impeccable, rapide et très professionnel. Le modèle 3D correspondait parfaitement à mes attentes.”</p>
+            <p class="avis-author">— Julien R.</p>
+        </div>
+
+        <div class="avis-card">
+            <p class="avis-text">“Super expérience ! Impression 3D de qualité et très bon accompagnement du début à la fin.”</p>
+            <p class="avis-author">— Marie L.</p>
+        </div>
+
+        <div class="avis-card">
+            <p class="avis-text">“David a su créer une pièce sur mesure introuvable ailleurs. Je recommande à 100%.”</p>
+            <p class="avis-author">— Thomas G.</p>
+        </div>
+
+    </div>
+</section>
+<!-- ⭐⭐ FIN SECTION AVIS CLIENTS ⭐⭐ -->
 
 <section id="contact">
     <h2>Contact</h2>
@@ -411,7 +476,6 @@ const captions = [
     "Support pour canne de volet roulant",
     "Médaillon NFC",
     "Stand pour Carte de Visite",
-    
 ];
 
 function updateCarousel() {
