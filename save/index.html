@@ -204,23 +204,28 @@
             padding: 20px 0;
         }
 
-        .avis-buttons {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
+       /* Correction centrage flèches sur PC */
+.avis-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;      /* indispensable */
+    width: 100%;
+    display: flex;
+    align-items: center;   /* centre vertical */
+    justify-content: space-between;
+    pointer-events: none;
+}
 
-        .avis-buttons span {
-            position: absolute;
-            font-size: 40px;
-            color: #d4af37;
-            cursor: pointer;
-            padding: 10px;
-            transition: 0.3s;
-            user-select: none;
-            pointer-events: auto;
-            z-index: 5;
-        }
+.avis-buttons span {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;      /* flèches centrées verticalement */
+    padding: 0 10px;
+}
+
 
         .avis-prev { left: 10px; }
         .avis-next { right: 10px; }
