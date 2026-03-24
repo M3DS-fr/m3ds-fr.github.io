@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M3DS – Modélisation 3D & NFC</title>
 
-    <!-- Typo Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -16,9 +15,7 @@
             color: #222;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         /* HEADER */
         header {
@@ -42,9 +39,7 @@
             transition: 0.3s;
         }
 
-        header nav a:hover {
-            color: #d4af37;
-        }
+        header nav a:hover { color: #d4af37; }
 
         .logo {
             font-size: 28px;
@@ -59,12 +54,9 @@
             background: linear-gradient(to bottom, #ffffff, #f0f0f0);
         }
 
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+        .hero h1 { font-size: 42px; margin-bottom: 10px; }
 
-        .hero .underline {
+        .underline {
             width: 120px;
             height: 4px;
             background: #d4af37;
@@ -91,27 +83,14 @@
             font-weight: 600;
         }
 
-        .cta-button:hover {
-            transform: scale(1.05);
-            background: #b8922c;
-        }
+        .cta-button:hover { transform: scale(1.05); background: #b8922c; }
 
-        /* SECTION TITLES */
-        section {
-            padding: 80px 50px;
-        }
+        /* SECTIONS */
+        section { padding: 80px 50px; }
 
-        h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+        h2 { text-align: center; font-size: 32px; margin-bottom: 10px; }
 
-        .subtitle {
-            text-align: center;
-            color: #555;
-            margin-bottom: 40px;
-        }
+        .subtitle { text-align: center; color: #555; margin-bottom: 40px; }
 
         /* CARROUSEL IMAGES */
         .carousel-container {
@@ -136,7 +115,6 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            background: #f5f5f5;
         }
 
         .carousel-buttons span {
@@ -147,13 +125,10 @@
             color: #d4af37;
             cursor: pointer;
             padding: 10px;
-            user-select: none;
             transition: 0.3s;
         }
 
-        .carousel-buttons span:hover {
-            color: #b8922c;
-        }
+        .carousel-buttons span:hover { color: #b8922c; }
 
         .prev { left: 10px; }
         .next { right: 10px; }
@@ -184,10 +159,7 @@
             transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px #00000030;
-        }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px #00000030; }
 
         /* À PROPOS */
         .apropos {
@@ -209,47 +181,36 @@
             padding-left: 20px;
         }
 
-        .timeline div {
-            margin-bottom: 20px;
+        .timeline div { margin-bottom: 20px; }
+
+        /* AVIS — CARROUSEL */
+        .avis-carousel-container {
+            width: 60%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* CARROUSEL AVIS — FIX */
-.avis-carousel-container {
-    width: 60%;
-    margin: auto;
-    overflow: hidden; /* IMPORTANT */
-    position: relative;
-}
-
-.avis-carousel-slide {
-    display: flex;
-    width: 100%; /* IMPORTANT */
-    overflow: hidden; /* IMPORTANT */
-    transition: transform 0.5s ease;
-}
-
-.avis-card {
-    min-width: 100%; /* IMPORTANT */
-    box-sizing: border-box; /* IMPORTANT */
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px #00000015;
-    text-align: center;
-}
-
-
-        .avis-text {
-            font-size: 16px;
-            color: #444;
-            font-style: italic;
+        .avis-carousel-slide {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            transition: transform 0.5s ease;
         }
 
-        .avis-author {
-            margin-top: 15px;
-            font-weight: 600;
-            color: #d4af37;
+        .avis-card {
+            min-width: 100%;
+            box-sizing: border-box;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+            text-align: center;
         }
+
+        .avis-text { font-size: 16px; color: #444; font-style: italic; }
+
+        .avis-author { margin-top: 15px; font-weight: 600; color: #d4af37; }
 
         .avis-buttons span {
             position: absolute;
@@ -259,13 +220,10 @@
             color: #d4af37;
             cursor: pointer;
             padding: 10px;
-            user-select: none;
             transition: 0.3s;
         }
 
-        .avis-buttons span:hover {
-            color: #b8922c;
-        }
+        .avis-buttons span:hover { color: #b8922c; }
 
         .avis-prev { left: 10px; }
         .avis-next { right: 10px; }
@@ -450,7 +408,8 @@
 
     </div>
 </section>
-<!-- ⭐⭐ SECTION AVIS CLIENTS ⭐⭐ -->
+
+<!-- ⭐⭐ SECTION AVIS ⭐⭐ -->
 <section id="avis">
     <h2>Ce que pensent mes clients</h2>
     <p class="subtitle">Ils ont fait confiance à M3DS</p>
@@ -482,7 +441,6 @@
     </div>
 </section>
 
-<!-- ⭐⭐ BOUTON LAISSER UN AVIS ⭐⭐ -->
 <div style="text-align:center; margin-top:40px;">
     <a href="#form-avis" class="cta-button">Laisser un avis</a>
 </div>
@@ -502,7 +460,7 @@
     </form>
 </section>
 
-<!-- ⭐⭐ SECTION CONTACT ⭐⭐ -->
+<!-- ⭐⭐ CONTACT ⭐⭐ -->
 <section id="contact">
     <h2>Contact</h2>
     <p class="subtitle">Une question, un projet ? Parlons-en.</p>
@@ -621,12 +579,9 @@ document.querySelector('.avis-prev').onclick = () => {
     updateAvisCarousel();
 };
 
-/* Défilement automatique */
+/* Défilement automatique des avis */
 setInterval(() => {
     avisIndex = (avisIndex + 1) % avisCards.length;
     updateAvisCarousel();
 }, 5000);
 </script>
-
-</body>
-</html>
