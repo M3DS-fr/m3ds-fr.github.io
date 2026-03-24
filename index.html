@@ -498,3 +498,133 @@
     <p>Mentions légales • Politique de confidentialité</p>
 </footer>
 
+<script>
+/* ============================
+   CARROUSEL IMAGES
+   ============================ */
+let index = 0;
+const slide = document.querySelector('.carousel-slide');
+const images = document.querySelectorAll('.carousel-slide img');
+
+const captions = [
+    "Amortisseur de WC",
+    "Butée de tiroir de lave-vaissel",
+    "Charnière pour lit d'appoint IKEA",
+    "Emporte-pièce personnalisé",
+    "Support pour canne de volet roulant",
+    "Médaillon NFC",
+    "Stand pour Carte de Visite",
+];
+
+function updateCarousel() {
+    slide.style.transform = `translateX(-${index * 100}%)`;
+    document.getElementById("carousel-caption").innerText = captions[index];
+}
+
+document.querySelector('.next').onclick = () => {
+    index = (index + 1) % images.length;
+    updateCarousel();
+};
+
+document.querySelector('.prev').onclick = () => {
+    index = (index - 1 + images.length) % images.length;
+    updateCarousel();
+};
+
+
+/* ============================
+   FORMULAIRE CONTACT
+   ============================ */
+const contactForm = document.querySelector("#contact .contact-form");
+const contactStatus = document.getElementById("form-status");
+
+contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    contactStatus.innerText = "Envoi en cours...";
+
+    const data = new FormData(contactForm);
+
+    const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        contactStatus.innerText = "Message envoyé avec succès !";
+        contactForm.reset();
+    } else {
+        contactStatus.innerText = "Erreur lors de l'envoi. Réessayez.";
+    }
+});
+
+
+/* ============================
+   FORMULAIRE AVIS
+   ============================ */
+const avisForm = document.querySelector("#form-avis form");
+const avisStatus = document.getElementById("avis-status");
+
+avisForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    avisStatus.innerText = "Envoi en cours...";
+
+    const data = new FormData(avisForm);
+
+    const response = await fetch(avisForm.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        avisStatus.innerText = "Merci ! Votre avis a bien été envoyé.";
+        avisForm.reset();
+    } else {
+        avisStatus.innerText = "Erreur lors de l'envoi. Réessayez.";
+    }
+});
+
+
+/* ============================
+   CARROUSEL AVIS (OPTIMISÉ)
+   ============================ */
+let avisIndex = 0;
+const avisSlide = document.querySelector('.avis-carousel-slide');
+const avisCards = document.querySelectorAll('.avis-carousel-slide .avis-card');
+const avisContainer = document.querySelector('.avis-carousel-container');
+
+/* Largeur totale du slide */
+avisSlide.style.width = `${avisCards.length * 100}%`;
+
+/* Chaque carte = largeur exacte du conteneur */
+avisCards.forEach(card => {
+    card.style.flex = "0 0 100%";
+});
+
+/* Fonction de mise à jour */
+function updateAvisCarousel() {
+    const width = avisContainer.offsetWidth;
+    avisSlide.style.transform = `translateX(-${avisIndex * width}px)`;
+}
+
+/* Boutons */
+document.querySelector('.avis-next').onclick = () => {
+    avisIndex = (avisIndex + 1) % avisCards.length;
+    updateAvisCarousel();
+};
+
+document.querySelector('.avis-prev').onclick = () => {
+    avisIndex = (avisIndex - 1 + avisCards.length) % avisCards.length;
+    updateAvisCarousel();
+};
+
+/* Défilement automatique */
+setInterval(() => {
+    avisIndex = (avisIndex + 1) % avisCards.length;
+    updateAvisCarousel();
+}, 5000);
+
+/* Position initiale */
+updateAvisCarousel();
+</script>
