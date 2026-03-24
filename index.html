@@ -213,27 +213,31 @@
             margin-bottom: 20px;
         }
 
-        /* AVIS — CARROUSEL */
-        .avis-carousel-container {
-            width: 60%;
-            margin: auto;
-            overflow: hidden;
-            position: relative;
-        }
+        /* CARROUSEL AVIS — FIX */
+.avis-carousel-container {
+    width: 60%;
+    margin: auto;
+    overflow: hidden; /* IMPORTANT */
+    position: relative;
+}
 
-        .avis-carousel-slide {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+.avis-carousel-slide {
+    display: flex;
+    width: 100%; /* IMPORTANT */
+    overflow: hidden; /* IMPORTANT */
+    transition: transform 0.5s ease;
+}
 
-        .avis-card {
-            min-width: 100%;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #00000015;
-            text-align: center;
-        }
+.avis-card {
+    min-width: 100%; /* IMPORTANT */
+    box-sizing: border-box; /* IMPORTANT */
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+    text-align: center;
+}
+
 
         .avis-text {
             font-size: 16px;
