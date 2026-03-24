@@ -592,15 +592,18 @@ avisForm.addEventListener("submit", async (e) => {
 let avisIndex = 0;
 const avisSlide = document.querySelector('.avis-carousel-slide');
 const avisCards = document.querySelectorAll('.avis-carousel-slide .avis-card');
+const avisContainer = document.querySelector('.avis-carousel-container');
+
 
 /* Fix : largeur totale + largeur de chaque carte */
-avisSlide.style.width = `${avisCards.length * 100}%`;
+avisSlide.style.transform = `translateX(-${avisIndex * avisCarouselContainer.offsetWidth}px)`;
 avisCards.forEach(card => {
     card.style.flex = "0 0 100%";
 });
 
 function updateAvisCarousel() {
-    avisSlide.style.transform = `translateX(-${avisIndex * 100}%)`;
+    const width = avisContainer.offsetWidth;
+    avisSlide.style.transform = `translateX(-${avisIndex * width}px)`;
 }
 
 document.querySelector('.avis-next').onclick = () => {
