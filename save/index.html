@@ -204,31 +204,38 @@
             padding: 20px 0;
         }
 
-       /* Correction centrage flèches sur PC */
+/* === Flèches du carrousel AVIS — version PC + mobile === */
 .avis-buttons {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;      /* indispensable */
+    inset: 0;
+    height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;   /* centre vertical */
+    align-items: center;      /* centre vertical parfait */
     justify-content: space-between;
     pointer-events: none;
 }
 
 .avis-buttons span {
     pointer-events: auto;
+    font-size: 40px;
+    color: #d4af37;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;      /* flèches centrées verticalement */
-    padding: 0 10px;
 }
 
+/* Position horizontale */
+.avis-prev { margin-left: 10px; }
+.avis-next { margin-right: 10px; }
 
-        .avis-prev { left: 10px; }
-        .avis-next { right: 10px; }
+/* Effet hover */
+.avis-buttons span:hover {
+    color: #b8922c;
+}
 
         .avis-carousel-slide {
             display: flex;
