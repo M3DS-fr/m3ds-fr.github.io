@@ -206,27 +206,34 @@
 
 .avis-card {
     min-width: 100%;
+    width: 100%; /* ← IMPORTANT */
     flex-shrink: 0;
     box-sizing: border-box;
     background: white;
-    padding: 30px; /* un peu plus de padding */
+    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 15px #00000015;
     text-align: center;
 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centre verticalement */
-    align-items: center;      /* centre horizontalement */
-    height: 100%;             /* occupe toute la hauteur du conteneur */
+    justify-content: center;
+    align-items: center;
 }
+
 
 .avis-text {
     font-size: 16px;
     color: #444;
     font-style: italic;
     margin-bottom: 10px;
+
+    max-width: 90%; /* ← empêche le débordement */
+    word-wrap: break-word; /* ← coupe proprement si nécessaire */
+    white-space: normal; /* ← permet le retour à la ligne */
+    text-align: center;
 }
+
 
 .avis-author {
     margin-top: 10px;
