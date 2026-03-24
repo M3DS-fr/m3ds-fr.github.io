@@ -107,26 +107,28 @@
             margin-bottom: 40px;
         }
 
-        /* CARROUSEL */
+        /* CARROUSEL RÉGLABLE */
         .carousel-container {
-            width: 50%;
+            width: 80%;              /* ← règle la largeur */
+            height: 400px;           /* ← règle la hauteur */
             margin: auto;
             overflow: hidden;
             position: relative;
             border-radius: 12px;
             box-shadow: 0 4px 20px #00000020;
-            background: white;
+            background: #000;
         }
 
         .carousel-slide {
             display: flex;
-            width: 300%;
+            height: 100%;
             transition: transform 0.5s ease;
         }
 
         .carousel-slide img {
             width: 100%;
-            object-fit: cover;
+            height: 100%;
+            object-fit: cover;       /* cover = image remplie sans déformation */
         }
 
         .carousel-buttons span {
@@ -138,6 +140,11 @@
             cursor: pointer;
             padding: 10px;
             user-select: none;
+            transition: 0.3s;
+        }
+
+        .carousel-buttons span:hover {
+            color: #b8922c;
         }
 
         .prev { left: 10px; }
@@ -309,7 +316,7 @@
 
     <div class="carousel-container">
         <div class="carousel-slide">
-            <img src="https://m3ds-fr.github.io/amortisseurwc.png" alt="">
+            <img src="https://via.placeholder.com/1200x600?text=Projet+1" alt="">
             <img src="https://via.placeholder.com/1200x600?text=Projet+2" alt="">
             <img src="https://via.placeholder.com/1200x600?text=Projet+3" alt="">
         </div>
@@ -376,11 +383,14 @@
     <h2>Contact</h2>
     <p class="subtitle">Une question, un projet ? Parlons-en.</p>
 
-    <form class="contact-form">
-        <input type="text" placeholder="Votre nom" required>
-        <input type="email" placeholder="Votre email" required>
-        <textarea placeholder="Votre message" required></textarea>
+    <form class="contact-form" action="https://formspree.io/f/xxxxabcd" method="POST">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Votre message" required></textarea>
+
         <button type="submit">Envoyer</button>
+
+        <p id="form-status" style="text-align:center; margin-top:15px; color:#d4af37;"></p>
     </form>
 </section>
 
@@ -394,15 +404,43 @@ let index = 0;
 const slide = document.querySelector('.carousel-slide');
 const images = document.querySelectorAll('.carousel-slide img');
 
+function updateCarousel() {
+    slide.style.transform = `translateX(-${index * 100}%)`;
+}
+
 document.querySelector('.next').onclick = () => {
     index = (index + 1) % images.length;
-    slide.style.transform = `translateX(-${index * 100}%)`;
+    updateCarousel();
 };
 
 document.querySelector('.prev').onclick = () => {
     index = (index - 1 + images.length) % images.length;
-    slide.style.transform = `translateX(-${index * 100}%)`;
+    updateCarousel();
 };
+
+/* FORMULAIRE FORMEE */
+const form = document.querySelector(".contact-form");
+const statusTxt = document.getElementById("form-status");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusTxt.innerText = "Envoi en cours...";
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        statusTxt.innerText = "Message envoyé avec succès !";
+        form.reset();
+    } else {
+        statusTxt.innerText = "Erreur lors de l'envoi. Réessayez.";
+    }
+});
 </script>
 
 </body>
