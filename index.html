@@ -189,11 +189,11 @@
 
 .avis-carousel-container {
     width: 100%;
-    max-width: 700px;       /* largeur idéale */
+    max-width: 700px;
     margin: auto;
     overflow: hidden;
     position: relative;
-    min-height: 260px;      /* hauteur minimum pour afficher le contenu */
+    min-height: 300px; /* ← augmente la hauteur visible */
     padding: 10px 0;
 }
 
@@ -204,8 +204,8 @@
 }
 
 .avis-card {
-    min-width: 100%;        /* chaque avis occupe 100% de la largeur visible */
-    flex-shrink: 0;         /* empêche la compression */
+    min-width: 100%;
+    flex-shrink: 0;
     box-sizing: border-box;
     background: white;
     padding: 25px;
@@ -213,10 +213,12 @@
     box-shadow: 0 4px 15px #00000015;
     text-align: center;
 
-    display: flex;          /* pour centrer verticalement */
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100%; /* ← force l'avis à occuper toute la hauteur */
 }
+
 
 .avis-text {
     font-size: 16px;
