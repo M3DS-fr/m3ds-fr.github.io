@@ -9,179 +9,179 @@
 
     <style>
         body {
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: #f5f5f5;
-            color: #222;
-        }
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
 
-        html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-        /* HEADER */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background: #ffffffd9;
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid #d4af37;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #ffffffd9;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #d4af37;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        header nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #222;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+header nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+    transition: 0.3s;
+}
 
-        header nav a:hover { color: #d4af37; }
+header nav a:hover { color: #d4af37; }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #d4af37;
-        }
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d4af37;
+}
 
-        /* HERO */
-        .hero {
-            padding: 120px 50px;
-            text-align: center;
-            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-        }
+/* HERO */
+.hero {
+    padding: 120px 50px;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+}
 
-        .hero h1 { font-size: 42px; margin-bottom: 10px; }
+.hero h1 { font-size: 42px; margin-bottom: 10px; }
 
-        .underline {
-            width: 120px;
-            height: 4px;
-            background: #d4af37;
-            margin: 10px auto 20px;
-            border-radius: 2px;
-            animation: glow 2s infinite alternate;
-        }
+.underline {
+    width: 120px;
+    height: 4px;
+    background: #d4af37;
+    margin: 10px auto 20px;
+    border-radius: 2px;
+    animation: glow 2s infinite alternate;
+}
 
-        @keyframes glow {
-            from { box-shadow: 0 0 5px #d4af37; }
-            to { box-shadow: 0 0 15px #d4af37; }
-        }
+@keyframes glow {
+    from { box-shadow: 0 0 5px #d4af37; }
+    to { box-shadow: 0 0 15px #d4af37; }
+}
 
-        .cta-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #d4af37;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-            text-decoration: none;
-            font-weight: 600;
-        }
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #d4af37;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    text-decoration: none;
+    font-weight: 600;
+}
 
-        .cta-button:hover { transform: scale(1.05); background: #b8922c; }
+.cta-button:hover { transform: scale(1.05); background: #b8922c; }
 
-        /* SECTIONS */
-        section { padding: 80px 50px; }
+/* SECTIONS */
+section { padding: 80px 50px; }
 
-        h2 { text-align: center; font-size: 32px; margin-bottom: 10px; }
+h2 { text-align: center; font-size: 32px; margin-bottom: 10px; }
 
-        .subtitle { text-align: center; color: #555; margin-bottom: 40px; }
+.subtitle { text-align: center; color: #555; margin-bottom: 40px; }
 
-        /* CARROUSEL IMAGES */
-        .carousel-container {
-            width: 40%;
-            height: 250px;
-            margin: auto;
-            overflow: hidden;
-            position: relative;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px #00000020;
-            background: #f5f5f5;
-        }
+/* CARROUSEL IMAGES */
+.carousel-container {
+    width: 40%;
+    height: 250px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px #00000020;
+    background: #f5f5f5;
+}
 
-        .carousel-slide {
-            display: flex;
-            height: 100%;
-            transition: transform 0.5s ease;
-        }
+.carousel-slide {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
 
-        .carousel-slide img {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+.carousel-slide img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-        .carousel-buttons span {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 40px;
-            color: #d4af37;
-            cursor: pointer;
-            padding: 10px;
-            transition: 0.3s;
-        }
+.carousel-buttons span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: #d4af37;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s;
+}
 
-        .carousel-buttons span:hover { color: #b8922c; }
+.carousel-buttons span:hover { color: #b8922c; }
 
-        .prev { left: 10px; }
-        .next { right: 10px; }
+.prev { left: 10px; }
+.next { right: 10px; }
 
-        .carousel-caption {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 18px;
-            color: #d4af37;
-            font-weight: 600;
-        }
+.carousel-caption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #d4af37;
+    font-weight: 600;
+}
 
-        /* SERVICES */
-        .services {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
+/* SERVICES */
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
 
-        .card {
-            width: 280px;
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #00000015;
-            text-align: center;
-            transition: 0.3s;
-        }
+.card {
+    width: 280px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+    text-align: center;
+    transition: 0.3s;
+}
 
-        .card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px #00000030; }
+.card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px #00000030; }
 
-        /* À PROPOS */
-        .apropos {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+/* À PROPOS */
+.apropos {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
 
-        .apropos img {
-            width: 380px;
-            border-radius: 12px;
-            transform: rotate(-2deg);
-            box-shadow: 0 4px 20px #00000030;
-        }
+.apropos img {
+    width: 380px;
+    border-radius: 12px;
+    transform: rotate(-2deg);
+    box-shadow: 0 4px 20px #00000030;
+}
 
-        .timeline {
-            border-left: 3px solid #d4af37;
-            padding-left: 20px;
-        }
+.timeline {
+    border-left: 3px solid #d4af37;
+    padding-left: 20px;
+}
 
-        .timeline div { margin-bottom: 20px; }
+.timeline div { margin-bottom: 20px; }
 
 /* ============================
    AVIS — CARROUSEL COMPLET
@@ -193,20 +193,47 @@
     margin: auto;
     overflow: hidden;
     position: relative;
-    min-height: 320px; /* augmente la hauteur */
+    min-height: 320px;
     padding: 20px 0;
 }
 
+/* Conteneur des flèches — couvre toute la zone */
+.avis-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.avis-buttons span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: #d4af37;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s;
+    user-select: none;
+    pointer-events: auto;
+    z-index: 5;
+}
+
+.avis-prev { left: 10px; }
+.avis-next { right: 10px; }
+
 .avis-carousel-slide {
     display: flex;
-    flex-wrap: nowrap;      /* IMPORTANT : les avis restent sur une seule ligne */
+    flex-wrap: nowrap;
     transition: transform 0.5s ease;
     align-items: center;
 }
 
 .avis-card {
     min-width: 100%;
-    width: 100%; /* ← IMPORTANT */
+    width: 100%;
     flex-shrink: 0;
     box-sizing: border-box;
     background: white;
@@ -221,19 +248,17 @@
     align-items: center;
 }
 
-
 .avis-text {
     font-size: 16px;
     color: #444;
     font-style: italic;
     margin-bottom: 10px;
 
-    max-width: 90%; /* ← empêche le débordement */
-    word-wrap: break-word; /* ← coupe proprement si nécessaire */
-    white-space: normal; /* ← permet le retour à la ligne */
+    max-width: 90%;
+    word-wrap: break-word;
+    white-space: normal;
     text-align: center;
 }
-
 
 .avis-author {
     margin-top: 10px;
@@ -241,103 +266,83 @@
     color: #d4af37;
 }
 
-/* Boutons du carrousel */
-.avis-buttons span {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: #d4af37;
+/* FORMULAIRE AVIS */
+.contact-form-avis {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form-avis input,
+.contact-form-avis textarea {
+    padding: 12px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Orbitron';
+}
+
+.contact-form-avis button {
+    padding: 12px;
+    background: #d4af37;
+    border: none;
+    color: white;
+    font-size: 18px;
     cursor: pointer;
-    padding: 10px;
+    border-radius: 8px;
     transition: 0.3s;
-    user-select: none;
 }
 
-.avis-buttons span:hover {
-    color: #b8922c;
+/* CONTACT */
+.contact-form {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.avis-prev { left: 10px; }
-.avis-next { right: 10px; }
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Orbitron';
+}
 
+.contact-form button {
+    padding: 12px;
+    background: #d4af37;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
 
-        /* FORMULAIRE AVIS */
-        .contact-form-avis {
-            width: 60%;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+footer {
+    background: #111;
+    color: white;
+    padding: 40px 50px;
+    text-align: center;
+    position: relative;
+}
 
-        .contact-form-avis input,
-        .contact-form-avis textarea {
-            padding: 12px;
-            border: 2px solid #d4af37;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: 'Orbitron';
-        }
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #d4af37;
+    box-shadow: 0 0 15px #d4af37;
+}
 
-        .contact-form-avis button {
-            padding: 12px;
-            background: #d4af37;
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        /* CONTACT */
-        .contact-form {
-            width: 60%;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            padding: 12px;
-            border: 2px solid #d4af37;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: 'Orbitron';
-        }
-
-        .contact-form button {
-            padding: 12px;
-            background: #d4af37;
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        footer {
-            background: #111;
-            color: white;
-            padding: 40px 50px;
-            text-align: center;
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 100%;
-            background: #d4af37;
-            box-shadow: 0 0 15px #d4af37;
-        }
     </style>
 </head>
 
