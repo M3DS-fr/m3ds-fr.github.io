@@ -1,110 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-/* ============================
-   PAGE AVANT / APRÈS
-   ============================ */
-
-#avant-apres {
-    padding: 80px 50px;
-}
-
-#avant-apres h2 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-#avant-apres .subtitle {
-    text-align: center;
-    color: #555;
-    margin-bottom: 40px;
-}
-
-/* Bloc projet */
-.projet {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px #00000015;
-    margin-bottom: 50px;
-    transition: 0.3s;
-}
-
-.projet:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px #00000030;
-}
-
-.projet h3 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 25px;
-    color: #d4af37;
-}
-
-/* Images avant/après */
-.images {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 20px;
-}
-
-.images div {
-    text-align: center;
-}
-
-.images h4 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #444;
-}
-
-.images img {
-    width: 280px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px #00000020;
-    background: #f5f5f5;
-    padding: 10px;
-}
-
-/* Texte description */
-.projet p {
-    text-align: center;
-    font-size: 16px;
-    color: #444;
-    margin-top: 10px;
-    line-height: 1.5;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-
-    #avant-apres {
-        padding: 40px 20px;
-    }
-
-    .images {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .images img {
-        width: 100%;
-        max-width: 350px;
-        margin: auto;
-    }
-
-    .projet {
-        padding: 20px;
-    }
-
-    .projet h3 {
-        font-size: 20px;
-    }
-}
-
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M3DS – Avant / Après</title>
@@ -115,7 +11,7 @@
     <!-- Police Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Ton CSS principal (le même que index.html) -->
+    <!-- Style principal -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -132,12 +28,13 @@
         <a href="index.html#contact">Contact</a>
     </nav>
 </header>
+
 <section id="avant-apres">
     <h2>Avant / Après</h2>
     <p class="subtitle">Quelques exemples de réparations et créations sur mesure</p>
 
     <!-- PROJET 1 -->
-    <div class="projet">
+    <div class="projet" id="amortisseur">
         <h3>Amortisseur WC cassé</h3>
 
         <div class="images">
@@ -159,7 +56,7 @@
     </div>
 
     <!-- PROJET 2 -->
-    <div class="projet">
+    <div class="projet" id="charniere">
         <h3>Charnière IKEA</h3>
 
         <div class="images">
@@ -180,7 +77,7 @@
     </div>
 
     <!-- PROJET 3 -->
-    <div class="projet">
+    <div class="projet" id="medaillon">
         <h3>Médaillon NFC personnalisé</h3>
 
         <div class="images">
@@ -201,6 +98,7 @@
     </div>
 
 </section>
+
 <footer>
     <p>@2026 - M3DS – Modélisation & Impression 3D</p>
     <p>Rennes, Bretagne</p>
@@ -208,4 +106,3 @@
 
 </body>
 </html>
-
