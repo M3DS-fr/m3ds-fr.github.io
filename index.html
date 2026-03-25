@@ -167,6 +167,50 @@ h2 { text-align: center; font-size: 32px; margin-bottom: 10px; }
 }
 
 .card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px #00000030; }
+/* MICRO-GALERIE AVANT / APRÈS */
+.exemples-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.exemple-card {
+    width: 250px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    color: #222;
+    transition: 0.3s;
+}
+
+.exemple-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px #00000030;
+}
+
+.exemple-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.exemple-card p {
+    font-weight: 600;
+    color: #d4af37;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .exemple-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
 
 /* À PROPOS */
 .apropos {
@@ -506,6 +550,30 @@ footer::before {
         </div>
     </div>
 </section>
+    <section id="exemples">
+    <h2>Exemples Avant / Après</h2>
+    <p class="subtitle">Découvrez quelques réalisations</p>
+
+    <div class="exemples-grid">
+
+        <a href="avant-apres.html#amortisseur" class="exemple-card">
+            <img src="img/amortisseur_apres.jpg" alt="Amortisseur WC">
+            <p>Amortisseur WC</p>
+        </a>
+
+        <a href="avant-apres.html#charniere" class="exemple-card">
+            <img src="img/charniere_apres.jpg" alt="Charnière IKEA">
+            <p>Charnière IKEA</p>
+        </a>
+
+        <a href="avant-apres.html#medaillon" class="exemple-card">
+            <img src="img/medaillon_apres.jpg" alt="Médaillon NFC">
+            <p>Médaillon NFC</p>
+        </a>
+
+    </div>
+</section>
+
 <!-- À PROPOS -->
 <section id="apropos">
     <h2>À propos de nous</h2>
