@@ -13,6 +13,107 @@
 
     <!-- Style principal -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Style spécifique Avant/Après -->
+    <style>
+        /* ============================
+           PAGE AVANT / APRÈS
+        ============================ */
+
+        #avant-apres {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        #avant-apres h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            color: #d4af37;
+        }
+
+        #avant-apres .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+
+        .projet {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            margin-bottom: 60px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .projet:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.22);
+        }
+
+        .projet h3 {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 30px;
+            color: #d4af37;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 25px;
+        }
+
+        .images div {
+            text-align: center;
+        }
+
+        .images h4 {
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #444;
+        }
+
+        .images img {
+            width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+            background: #f8f8f8;
+            padding: 10px;
+        }
+
+        .projet p {
+            text-align: center;
+            font-size: 17px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        @media (max-width: 900px) {
+            .images {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .images img {
+                width: 100%;
+                max-width: 350px;
+                margin: auto;
+            }
+
+            .projet {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
