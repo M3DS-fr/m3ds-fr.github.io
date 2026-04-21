@@ -26,9 +26,14 @@ jobs:
       run: |
         git config --global user.name "M3DS Bot"
         git config --global user.email "bot@m3ds.fr"
+
         git add animals/${{ github.event.client_payload.id }}.json
         git add animals/${{ github.event.client_payload.id }}.html
-        git commit -m "Add animal files for ${{ github.event.client_payload.id }}"
+
+        git commit -m "Add animal files for ${{ github.event.client_payload.id }}" || echo "No changes to commit"
+
+        git pull origin main --rebase
+
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
