@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -482,44 +483,7 @@ footer::before {
     }
 }
 
-    </style>
-/* COMPTEUR BADGES EN ATTENTE */
-.counter-box {
-    background: white;
-    padding: 20px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px #00000020;
-    font-size: 20px;
-    color: #222;
-    text-align: center;
-    width: fit-content;
-    margin: 40px auto;
-    border: 2px solid #d4af37;
-}
-
-.counter-box strong {
-    color: #d4af37;
-    font-size: 24px;
-}
-
-.btn-m3ds {
-    display: inline-block;
-    padding: 12px 25px;
-    margin: 10px;
-    background: #d4af37;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-m3ds:hover {
-    background: #b8922c;
-}
-
-    
+</style>
 </head>
 <body>
 
@@ -542,16 +506,6 @@ footer::before {
     <a href="#contact" class="cta-button">Nous Contacter</a>
 </section>
 
-<div id="counterBox" class="counter-box">
-    Chargement du nombre de badges en attente…
-</div>
-
-<div style="text-align:center;">
-    <a href="system/merchant/list.html" class="btn-m3ds">Espace commerçant</a>
-    <a href="system/admin/index.html" class="btn-m3ds">Espace administrateur</a>
-</div>
-
-    
 <!-- GALERIE -->
 <section id="galerie">
     <h2>Galerie photos</h2>
@@ -661,7 +615,7 @@ footer::before {
             <a href="https://www.tiktok.com/@m3dsfr/video/7577473919280581910" target="_blank">🎥 Voir la vidéo</a>
         </div>
 
-        <div class="card">
+<div class="card">
             <img src="https://m3ds-fr.github.io/img/baf.png" style="width:100%;border-radius:8px;">
             <h3>Projet B.A.F</h3>
             <p>Barrière Anti Fumée pour initier mon fils à la soudure en toute sécurité.</p>
@@ -846,27 +800,6 @@ setInterval(() => {
 /* Position initiale */
 updateAvisCarousel();
 </script>
-
-    <script>
-    async function loadCounter() {
-        try {
-            const response = await fetch("system/pending.json");
-            const data = await response.json();
-
-            const count = data.pending.length;
-
-            document.getElementById("counterBox").innerHTML =
-                `🟢 <strong>${count}</strong> badge(s) en attente d’enregistrement`;
-        }
-        catch (e) {
-            document.getElementById("counterBox").innerHTML =
-                "Impossible de charger les données.";
-        }
-    }
-
-    loadCounter();
-</script>
-
 
 </body>
 </html>
