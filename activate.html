@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Activation du Médaillon</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<h2>Activation du Médaillon NFC</h2>
+<p>Veuillez remplir les informations ci-dessous pour créer la fiche de votre animal.</p>
+
+<label>Nom de l'animal</label>
+<input id="animalName" type="text">
+
+<label>Race</label>
+<input id="animalRace" type="text">
+
+<label>Âge</label>
+<input id="animalAge" type="text">
+
+<label>Nom du propriétaire</label>
+<input id="ownerName" type="text">
+
+<label>Téléphone</label>
+<input id="ownerPhone" type="text">
+
+<label>Email</label>
+<input id="ownerEmail" type="email">
+
+<button onclick="submitForm()">Créer la fiche</button>
+
+<script>
+function generateID() {
+    return Math.random().toString(36).substring(2, 10).toUpperCase();
+}
+
+async function submitForm() {
+    const id = generateID();
+
+    const data = {
+        id: id,
+        animalName: document.getElementById("animalName").value,
+        animalRace: document.getElementById("animalRace").value,
+        animalAge: document.getElementById("animalAge").value,
+        ownerName: document.getElementById("ownerName").value,
+        ownerPhone: document.getElementById("ownerPhone").value,
+        ownerEmail: document.getElementById("ownerEmail").value
+    };
+
+    const jsonContent = JSON.stringify(data, null, 2);
+
+    // Envoi vers GitHub via API
+    const response = await fetch(`https://api.github.com/repos/m3ds-fr/m3ds-fr.github.io/contents/animals/${id}.json`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer VOTRE_TOKEN_GITHUB"
+        },
+        body: JSON.stringify({
+            message: "Ajout fiche animal " + id,
+            content: btoa(jsonContent)
+        })
+    });
+
+    if (response.ok) {
+        window.location.href = `/animals/${id}.html`;
+    } else {
+        alert("Erreur lors de la création de la fiche.");
+    }
+}
+</script>
+
+</body>
+</html>
