@@ -1,0 +1,30 @@
+name: Receive Form Data
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [animal_form]
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Create JSON + HTML
+      run: |
+        echo '${{ toJson(github.event.client_payload) }}' > animals/${{ github.event.client_payload.id }}.json
+        cp animals/template.html animals/${{ github.event.client_payload.id }}.html
+
+    - name: Commit
+      run: |
+        git config --global user.name "M3DS Bot"
+        git config --global user.email "bot@m3ds.fr"
+        git add animals/${{ github.event.client_payload.id }}.json
+        git add animals/${{ github.event.client_payload.id }}.html
+        git commit -m "Add animal file ${{ github.event.client_payload.id }}"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
