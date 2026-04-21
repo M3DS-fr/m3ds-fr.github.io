@@ -91,26 +91,22 @@ function submitForm() {
 
     document.getElementById("recap").style.display = "block";
 
-    // Envoi vers GitHub Actions via repository_dispatch
-    fetch("https://api.github.com/repos/m3ds-fr/m3ds-fr.github.io/dispatches", {
+    // Envoi vers ton Worker Cloudflare
+    fetch("https://noisy-silence-a8ff.maker3dservices.workers.dev/", {
         method: "POST",
-        headers: {
-            "Accept": "application/vnd.github.everest-preview+json",
-            "Authorization": "Bearer <GH_TOKEN>"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            event_type: "animal_form",
-            client_payload: {
-                id: id,
-                animalName: animalName,
-                animalRace: animalRace,
-                animalAge: animalAge,
-                ownerName: ownerName,
-                ownerPhone: ownerPhone,
-                ownerEmail: ownerEmail
-            }
+            id: id,
+            animalName: animalName,
+            animalRace: animalRace,
+            animalAge: animalAge,
+            ownerName: ownerName,
+            ownerPhone: ownerPhone,
+            ownerEmail: ownerEmail
         })
-    });
+    })
+    .then(r => console.log("Worker response:", r.status))
+    .catch(err => console.error("Erreur Worker:", err));
 }
 </script>
 
