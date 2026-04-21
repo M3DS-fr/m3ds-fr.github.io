@@ -1,0 +1,48 @@
+name: Add badge to pending list
+
+on:
+  push:
+    paths:
+      - "animals/*.json"
+
+jobs:
+  add_pending:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Extract badge ID from filename
+        id: extract
+        run: |
+          FILE=$(ls animals/*.json | tail -n 1)
+          ID=$(basename "$FILE" .json)
+          echo "id=$ID" >> $GITHUB_OUTPUT
+
+      - name: Update pending.json
+        run: |
+          ID="${{ steps.extract.outputs.id }}"
+          FILE="system/pending.json"
+
+          # Lire le JSON existant
+          CONTENT=$(cat $FILE)
+
+          # Ajouter l'ID s'il n'existe pas déjà
+          echo "$CONTENT" | jq --arg id "$ID" '
+            if (.pending | index($id)) then
+              .
+            else
+              .pending += [$id]
+            end
+          ' > $FILE.tmp
+
+          mv $FILE.tmp $FILE
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "M3DS Bot"
+          git config --global user.email "bot@m3ds.fr"
+          git add system/pending.json
+          git commit -m "Add badge ${{ steps.extract.outputs.id }} to pending list" || echo "No changes to commit"
+          git push
