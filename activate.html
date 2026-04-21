@@ -2,25 +2,37 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Activation du Médaillon</title>
+<title>Activation du Médaillon NFC</title>
 <style>
-body {
-    font-family: Arial, sans-serif;
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-}
-input, button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-}
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+    }
+    input, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+    .recap {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        background: #f9f9f9;
+    }
+    .id-badge {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #b30000;
+    }
 </style>
 </head>
 <body>
 
 <h2>Activation du Médaillon NFC</h2>
-<p>Veuillez remplir les informations ci-dessous pour créer la fiche de votre animal.</p>
+<p>Remplissez les informations ci-dessous pour générer l’identifiant de votre médaillon.</p>
 
 <label>Nom de l'animal</label>
 <input id="animalName" type="text">
@@ -40,46 +52,48 @@ input, button {
 <label>Email</label>
 <input id="ownerEmail" type="email">
 
-<button onclick="submitForm()">Créer la fiche</button>
+<button onclick="submitForm()">Générer l’ID du médaillon</button>
+
+<div id="recap" class="recap" style="display:none;">
+    <h3>Votre médaillon est prêt</h3>
+    <p>Voici l’identifiant unique de votre médaillon :</p>
+    <p class="id-badge" id="badgeId"></p>
+    <p>Notez cet identifiant et communiquez-le au point de vente pour l’activation NFC.</p>
+    <p><strong>Récapitulatif :</strong></p>
+    <ul>
+        <li><span id="rAnimal"></span></li>
+        <li><span id="rOwner"></span></li>
+        <li><span id="rPhone"></span></li>
+        <li><span id="rEmail"></span></li>
+    </ul>
+</div>
 
 <script>
 function generateID() {
     return Math.random().toString(36).substring(2, 10).toUpperCase();
 }
 
-async function submitForm() {
+function submitForm() {
     const id = generateID();
 
-    const data = {
-        id: id,
-        animalName: document.getElementById("animalName").value,
-        animalRace: document.getElementById("animalRace").value,
-        animalAge: document.getElementById("animalAge").value,
-        ownerName: document.getElementById("ownerName").value,
-        ownerPhone: document.getElementById("ownerPhone").value,
-        ownerEmail: document.getElementById("ownerEmail").value
-    };
+    const animalName = document.getElementById("animalName").value;
+    const animalRace = document.getElementById("animalRace").value;
+    const animalAge = document.getElementById("animalAge").value;
+    const ownerName = document.getElementById("ownerName").value;
+    const ownerPhone = document.getElementById("ownerPhone").value;
+    const ownerEmail = document.getElementById("ownerEmail").value;
 
-    const jsonContent = JSON.stringify(data, null, 2);
+    // Affichage du récap pour le client
+    document.getElementById("badgeId").textContent = id;
+    document.getElementById("rAnimal").textContent = "Animal : " + animalName + " (" + animalRace + ", " + animalAge + ")";
+    document.getElementById("rOwner").textContent = "Propriétaire : " + ownerName;
+    document.getElementById("rPhone").textContent = "Téléphone : " + ownerPhone;
+    document.getElementById("rEmail").textContent = "Email : " + ownerEmail;
 
-    // Envoi vers GitHub via API
-    const response = await fetch(`https://api.github.com/repos/m3ds-fr/m3ds-fr.github.io/contents/animals/${id}.json`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer VOTRE_TOKEN_GITHUB"
-        },
-        body: JSON.stringify({
-            message: "Ajout fiche animal " + id,
-            content: btoa(jsonContent)
-        })
-    });
+    document.getElementById("recap").style.display = "block";
 
-    if (response.ok) {
-        window.location.href = `/animals/${id}.html`;
-    } else {
-        alert("Erreur lors de la création de la fiche.");
-    }
+    // Plus tard : ici on enverra les données vers GitHub Actions
+    // pour créer le fichier JSON et la fiche publique.
 }
 </script>
 
