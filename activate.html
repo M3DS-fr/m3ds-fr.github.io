@@ -58,7 +58,6 @@
     <h3>Votre médaillon est prêt</h3>
     <p>Voici l’identifiant unique de votre médaillon :</p>
     <p class="id-badge" id="badgeId"></p>
-    <p>Notez cet identifiant et communiquez-le au point de vente pour l’activation NFC.</p>
     <p><strong>Récapitulatif :</strong></p>
     <ul>
         <li><span id="rAnimal"></span></li>
@@ -83,7 +82,7 @@ function submitForm() {
     const ownerPhone = document.getElementById("ownerPhone").value;
     const ownerEmail = document.getElementById("ownerEmail").value;
 
-    // Affichage du récap pour le client
+    // Affichage du récap
     document.getElementById("badgeId").textContent = id;
     document.getElementById("rAnimal").textContent = "Animal : " + animalName + " (" + animalRace + ", " + animalAge + ")";
     document.getElementById("rOwner").textContent = "Propriétaire : " + ownerName;
@@ -92,8 +91,26 @@ function submitForm() {
 
     document.getElementById("recap").style.display = "block";
 
-    // Plus tard : ici on enverra les données vers GitHub Actions
-    // pour créer le fichier JSON et la fiche publique.
+    // Envoi vers GitHub Actions
+    fetch("https://api.github.com/repos/m3ds-fr/m3ds-fr.github.io/dispatches", {
+        method: "POST",
+        headers: {
+            "Accept": "application/vnd.github.everest-preview+json",
+            "Authorization": "Bearer " + "<GH_TOKEN>"
+        },
+        body: JSON.stringify({
+            event_type: "create_animal_file",
+            client_payload: {
+                id: id,
+                animalName: animalName,
+                animalRace: animalRace,
+                animalAge: animalAge,
+                ownerName: ownerName,
+                ownerPhone: ownerPhone,
+                ownerEmail: ownerEmail
+            }
+        })
+    });
 }
 </script>
 
