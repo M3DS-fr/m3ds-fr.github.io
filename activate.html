@@ -91,15 +91,15 @@ function submitForm() {
 
     document.getElementById("recap").style.display = "block";
 
-    // Envoi vers GitHub Actions
+    // Envoi vers GitHub Actions via repository_dispatch
     fetch("https://api.github.com/repos/m3ds-fr/m3ds-fr.github.io/dispatches", {
         method: "POST",
         headers: {
             "Accept": "application/vnd.github.everest-preview+json",
-            "Authorization": "Bearer " + "<GH_TOKEN>"
+            "Authorization": "Bearer <GH_TOKEN>"
         },
         body: JSON.stringify({
-            event_type: "create_animal_file",
+            event_type: "animal_form",
             client_payload: {
                 id: id,
                 animalName: animalName,
