@@ -19,7 +19,6 @@ jobs:
     - name: Create HTML file from template
       run: |
         cp animals/template.html animals/${{ github.event.client_payload.id }}.html
-        sed -i "s/REPLACE_ID/${{ github.event.client_payload.id }}/g" animals/${{ github.event.client_payload.id }}.html
 
     - name: Commit and push files
       run: |
@@ -31,4 +30,3 @@ jobs:
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
