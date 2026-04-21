@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Fiche Animal</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+    }
+    .card {
+        padding: 20px;
+        border: 1px solid #ccc;
+        background: #fafafa;
+        border-radius: 8px;
+    }
+    .title {
+        font-size: 1.6em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .qr {
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="title">Fiche de l'animal</div>
+
+    <p><strong>Nom :</strong> <span id="animalName"></span></p>
+    <p><strong>Race :</strong> <span id="animalRace"></span></p>
+    <p><strong>Âge :</strong> <span id="animalAge"></span></p>
+
+    <hr>
+
+    <p><strong>Propriétaire :</strong> <span id="ownerName"></span></p>
+    <p><strong>Téléphone :</strong> <span id="ownerPhone"></span></p>
+    <p><strong>Email :</strong> <span id="ownerEmail"></span></p>
+
+    <hr>
+
+    <p><strong>ID du médaillon :</strong> <span id="badgeId"></span></p>
+
+    <div class="qr">
+        <img id="qrCode" src="" alt="QR Code">
+    </div>
+</div>
+
+<script>
+async function loadData() {
+    // Récupère l'ID depuis l'URL
+    const id = window.location.pathname.split("/").pop().replace(".html", "");
+
+    document.getElementById("badgeId").textContent = id;
+
+    // Charge le fichier JSON correspondant
+    const response = await fetch(`/${"animals"}/${id}.json`);
+    const data = await response.json();
+
+    // Remplit la fiche
+    document.getElementById("animalName").textContent = data.animalName;
+    document.getElementById("animalRace").textContent = data.animalRace;
+    document.getElementById("animalAge").textContent = data.animalAge;
+
+    document.getElementById("ownerName").textContent = data.ownerName;
+    document.getElementById("ownerPhone").textContent = data.ownerPhone;
+    document.getElementById("ownerEmail").textContent = data.ownerEmail;
+
+    // Génère un QR Code vers cette fiche
+    const url = `https://m3ds-fr.github.io/animals/${id}.html`;
+    document.getElementById("qrCode").src =
+        `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+}
+
+loadData();
+</script>
+
+</body>
+</html>
