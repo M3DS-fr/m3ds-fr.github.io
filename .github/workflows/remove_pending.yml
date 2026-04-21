@@ -1,0 +1,55 @@
+name: Remove badge from pending and add to completed
+
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: "ID du badge à valider"
+        required: true
+        type: string
+
+jobs:
+  update_lists:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Remove ID from pending.json
+        run: |
+          ID="${{ github.event.inputs.id }}"
+          FILE="system/pending.json"
+
+          echo "Retrait de l'ID $ID de pending.json"
+
+          cat $FILE | jq --arg id "$ID" '
+            .pending |= map(select(. != $id))
+          ' > $FILE.tmp
+
+          mv $FILE.tmp $FILE
+
+      - name: Add ID to completed.json
+        run: |
+          ID="${{ github.event.inputs.id }}"
+          FILE="system/completed.json"
+
+          echo "Ajout de l'ID $ID dans completed.json"
+
+          cat $FILE | jq --arg id "$ID" '
+            if (.completed | index($id)) then
+              .
+            else
+              .completed += [$id]
+            end
+          ' > $FILE.tmp
+
+          mv $FILE.tmp $FILE
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "M3DS Bot"
+          git config --global user.email "bot@m3ds.fr"
+          git add system/pending.json system/completed.json
+          git commit -m "Badge ${{ github.event.inputs.id }} validé (NFC écrit)" || echo "Aucun changement"
+          git push
