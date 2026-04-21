@@ -1,1 +1,34 @@
+name: Create Animal Files
+
+on:
+  repository_dispatch:
+    types: [create_animal_file]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Create JSON file
+      run: |
+        echo '${{ toJson(github.event.client_payload) }}' > animals/${{ github.event.client_payload.id }}.json
+
+    - name: Create HTML file from template
+      run: |
+        cp animals/template.html animals/${{ github.event.client_payload.id }}.html
+        sed -i "s/REPLACE_ID/${{ github.event.client_payload.id }}/g" animals/${{ github.event.client_payload.id }}.html
+
+    - name: Commit and push files
+      run: |
+        git config --global user.name "M3DS Bot"
+        git config --global user.email "bot@m3ds.fr"
+        git add animals/${{ github.event.client_payload.id }}.json
+        git add animals/${{ github.event.client_payload.id }}.html
+        git commit -m "Add animal files for ${{ github.event.client_payload.id }}"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
