@@ -92,7 +92,7 @@ function submitForm() {
     document.getElementById("recap").style.display = "block";
 
     // Envoi vers ton Worker Cloudflare
-    fetch("https://noisy-silence-a8ff.maker3dservices.workers.dev/activate", {
+    fetch("https://noisy-silence-a8ff.maker3dservices.workers.dev/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
