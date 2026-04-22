@@ -92,7 +92,7 @@ function submitForm() {
     document.getElementById("recap").style.display = "block";
 
     // Envoi vers ton Worker Cloudflare
-    fetch("https://noisy-silence-a8ff.maker3dservices.workers.dev/", {
+    fetch("https://noisy-silence-a8ff.maker3dservices.workers.dev/activate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -105,7 +105,10 @@ function submitForm() {
             ownerEmail: ownerEmail
         })
     })
-    .then(r => console.log("Worker response:", r.status))
+    .then(async r => {
+        const txt = await r.text();
+        console.log("Worker response:", r.status, txt);
+    })
     .catch(err => console.error("Erreur Worker:", err));
 }
 </script>
