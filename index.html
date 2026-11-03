@@ -353,6 +353,38 @@ h2 { text-align: center; font-size: 32px; margin-bottom: 10px; }
     transition: 0.3s;
 }
 
+/* PRODUITS */
+.produit img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* CONTACT DIRECT */
+.contact-direct {
+    text-align: center;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.contact-direct a {
+    color: #222;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    padding: 10px 18px;
+    transition: 0.3s;
+    word-break: break-all;
+}
+
+.contact-direct a:hover { background: #d4af37; color: white; }
+
+.contact-direct p { color: #555; font-size: 14px; }
+
 /* FOOTER */
 footer {
     background: #111;
@@ -492,9 +524,10 @@ footer::before {
     <nav>
         <a href="#">Accueil</a>
         <a href="#services">Services</a>
+        <a href="#produits">Produits</a>
         <a href="#apropos">À propos</a>
         <a href="#projets">Projets</a>
-        <a href="#avis">Avis</a>
+        <a href="#avis" id="nav-avis">Avis</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
@@ -553,6 +586,46 @@ footer::before {
         </div>
     </div>
 </section>
+
+<!-- PRODUITS -->
+<!-- Pour ajouter la photo d'un produit, déposez-la dans le dossier img/produits/ avec le nom indiqué dans la balise img. Tant qu'elle n'existe pas, la carte s'affiche sans photo. -->
+<section id="produits">
+    <h2>Nos Produits</h2>
+    <p class="subtitle">Créations M3DS conçues et imprimées à Rennes</p>
+
+    <div class="services">
+
+        <div class="card produit">
+            <img src="img/produits/porte-casque.jpg" alt="Porte-casque gamer" onerror="this.remove()">
+            <h3>Porte-casque gamer</h3>
+            <p>Support de casque personnalisable, versions PlayStation et Xbox avec logo incrusté. Couleurs au choix, pseudo ou logo, ruban LED en option.</p>
+            <a href="https://www.tiktok.com/@m3dsfr/video/7677799578413862177" target="_blank" rel="noopener">🎥 Voir la vidéo</a>
+        </div>
+
+        <div class="card produit">
+            <img src="img/produits/slide-flex.jpg" alt="Slide Flex" onerror="this.remove()">
+            <h3>Slide Flex</h3>
+            <p>Système en 2 parties qui replie et verrouille un sac d'aspirateur entamé pour pouvoir le réutiliser. Moins de gaspillage, moins de dépenses.</p>
+            <a href="https://www.tiktok.com/@m3dsfr/video/7688324483312012577" target="_blank" rel="noopener">🎥 Voir la vidéo</a>
+        </div>
+
+        <div class="card produit">
+            <img src="img/produits/passe-cable.jpg" alt="Passe-câble de bureau" onerror="this.remove()">
+            <h3>Passe-câble de bureau</h3>
+            <p>Passe-câble 100 % paramétrique avec couvercle pivotant : diamètre et hauteur adaptés à votre bureau.</p>
+            <a href="https://www.tiktok.com/@m3dsfr/video/7698472486454775072" target="_blank" rel="noopener">🎥 Voir la vidéo</a>
+        </div>
+
+        <div class="card produit">
+            <img src="img/produits/porte-sac-canin.jpg" alt="Porte-sac canin" onerror="this.remove()">
+            <h3>Porte-sac canin</h3>
+            <p>Distributeur de sacs pour la promenade du chien, avec filetage fonctionnel. Pratique et solide.</p>
+            <a href="https://www.tiktok.com/@m3dsfr/video/7658965866612133142" target="_blank" rel="noopener">🎥 Voir la vidéo</a>
+        </div>
+
+    </div>
+    <p class="subtitle" style="margin-top:30px;margin-bottom:0;">Un produit vous intéresse ? <a href="#contact">Demandez un devis</a>.</p>
+</section>
     <section id="exemples">
     <h2>Exemples Avant / Après</h2>
     <p class="subtitle">Découvrez quelques réalisations</p>
@@ -565,12 +638,12 @@ footer::before {
         </a>
 
         <a href="avant-apres.html#charniere" class="exemple-card">
-            <img src="img/charniere_apres.jpg" alt="Charnière IKEA">
+            <img src="https://m3ds-fr.github.io/img/charniere.png" alt="Charnière IKEA">
             <p>Charnière IKEA</p>
         </a>
 
         <a href="avant-apres.html#medaillon" class="exemple-card">
-            <img src="img/medaillon_apres.jpg" alt="Médaillon NFC">
+            <img src="https://m3ds-fr.github.io/img/medaillonNFC.jpg" alt="Médaillon NFC">
             <p>Médaillon NFC</p>
         </a>
 
@@ -670,6 +743,12 @@ footer::before {
     <h2>Contact</h2>
     <p class="subtitle">Une question, un projet ? Parlons-en.</p>
 
+    <div class="contact-direct">
+        <a href="mailto:maker3dservices@gmail.com">✉️ maker3dservices@gmail.com</a>
+        <a href="https://wa.me/33769187124" target="_blank" rel="noopener">💬 WhatsApp : 07 69 18 71 24</a>
+        <p>Réponse sous 24 h</p>
+    </div>
+
     <form class="contact-form" action="https://formspree.io/f/xyknrjre" method="POST">
         <input type="text" name="name" placeholder="Votre nom" required>
         <input type="email" name="email" placeholder="Votre email" required>
@@ -681,10 +760,34 @@ footer::before {
 
 <footer>
     <p>@2026 - M3DS – Modélisation & Impression 3D</p>
+    <p><a href="mailto:maker3dservices@gmail.com" style="color:#fff;">maker3dservices@gmail.com</a> • <a href="https://wa.me/33769187124" target="_blank" rel="noopener" style="color:#fff;">WhatsApp 07 69 18 71 24</a></p>
     <p>Mentions légales • Politique de confidentialité</p>
 </footer>
 
 <script>
+/* ============================
+   RÉGLAGES — modifiez ici
+   ============================
+   AFFICHER_AVIS : true = la section « Ce que pensent mes clients » est visible
+                   false = elle est masquée (le menu « Avis » mène alors au formulaire)
+   AFFICHER_FORMULAIRE_AVIS : true = les visiteurs peuvent laisser un avis
+*/
+const AFFICHER_AVIS = false;
+const AFFICHER_FORMULAIRE_AVIS = true;
+
+(function appliquerReglagesAvis() {
+    const sectionAvis = document.getElementById("avis");
+    const sectionForm = document.getElementById("form-avis");
+    const navAvis = document.getElementById("nav-avis");
+    if (!AFFICHER_AVIS) sectionAvis.style.display = "none";
+    if (!AFFICHER_FORMULAIRE_AVIS) sectionForm.style.display = "none";
+    if (!AFFICHER_AVIS && AFFICHER_FORMULAIRE_AVIS) {
+        navAvis.setAttribute("href", "#form-avis");
+        if (location.hash === "#avis") document.getElementById("form-avis").scrollIntoView();
+    }
+    if (!AFFICHER_AVIS && !AFFICHER_FORMULAIRE_AVIS) navAvis.style.display = "none";
+})();
+
 /* ============================
    CARROUSEL IMAGES
    ============================ */
@@ -708,6 +811,8 @@ function updateCarousel() {
     slide.style.transform = `translateX(-${index * 100}%)`;
     document.getElementById("carousel-caption").innerText = captions[index];
 }
+
+updateCarousel();
 
 document.querySelector('.next').onclick = () => {
     index = (index + 1) % images.length;
