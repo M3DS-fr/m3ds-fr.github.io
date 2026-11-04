@@ -1,0 +1,94 @@
+/* =========================================================
+   KIT GRAPHIQUE M3DS — version bleu marine
+   Bleu marine (logo) en couleur principale, doré en touche.
+   Polices : Barlow Condensed (titres), Barlow (textes).
+   Chargé après les styles de chaque page : il les remplace.
+   ========================================================= */
+:root{
+  --navy:#1f2937;      /* bleu marine du logo */
+  --navy2:#111827;     /* bleu marine foncé (pied de page) */
+  --gold:#d4af37;      /* doré M3DS : boutons, soulignements */
+  --goldt:#9a7a1f;     /* doré foncé lisible sur fond clair (texte) */
+  --bg:#f6f5f1;        /* fond de page */
+  --txt:#1f2937;
+  --mut:#5b6472;       /* texte secondaire */
+  --titres:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --texte:Barlow,Arial,sans-serif;
+}
+
+body{margin:0;font-family:var(--texte);font-size:17px;color:var(--txt);background:var(--bg)}
+h1,h2,h3,.logo span,header nav a,nav a,.cta-button,button{font-family:var(--titres)}
+h1{font-size:46px;font-weight:700;line-height:1.05;text-transform:uppercase;letter-spacing:.01em;max-width:760px;margin:0 auto 10px;text-wrap:balance}
+h2{font-size:36px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);text-wrap:balance}
+h2::after{content:"";display:block;width:56px;height:3px;background:var(--gold);margin:10px auto 0;border-radius:2px}
+h3{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.subtitle{color:var(--mut)}
+
+/* En-tête */
+header{background:var(--navy);border-bottom:3px solid var(--gold);backdrop-filter:none;-webkit-backdrop-filter:none}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.logo img{height:44px;width:auto;display:block}
+.logo span{font-size:26px;font-weight:700;letter-spacing:.06em;color:#fff}
+header nav a,nav a{font-size:17px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#e5e7eb}
+header nav a:hover,nav a:hover{color:var(--gold)}
+
+/* Accueil */
+.hero{background:radial-gradient(ellipse at 50% 0%,#2c3a4f 0%,var(--navy) 55%,var(--navy2) 100%);color:#fff}
+.hero h1{color:#fff}
+.hero p{font-size:19px;color:#cbd2dc;margin-bottom:22px}
+.hero-logo{width:150px;height:auto;display:block;margin:0 auto 22px}
+.underline{background:var(--gold);animation:none;box-shadow:none;width:80px}
+.cta-button{background:var(--gold);color:var(--navy2);font-size:18px;letter-spacing:.06em;text-transform:uppercase;padding:13px 28px;border-radius:8px}
+.cta-button:hover{background:#e2c25a}
+
+/* Cartes */
+.card,.exemple-card,.avis-card,.projet{border-radius:10px;box-shadow:0 1px 3px #1f293714,0 6px 18px #1f29370f;border:1px solid #1f293712}
+.card p{color:var(--mut)}
+.card a,.subtitle a,section p a{color:var(--goldt);font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold)}
+.card a:hover,.subtitle a:hover,section p a:hover{color:var(--navy)}
+.carousel-caption,.exemple-card p,.avis-author{color:var(--goldt);font-family:var(--titres);font-size:19px;letter-spacing:.03em}
+.carousel-container{background:#fff}
+.carousel-buttons span,.avis-buttons span{color:var(--navy)}
+.carousel-buttons span:hover,.avis-buttons span:hover{color:var(--goldt)}
+.timeline{border-left-color:var(--gold)}
+
+/* Formulaires */
+.contact-form input,.contact-form textarea,.contact-form-avis input,.contact-form-avis textarea{font-family:var(--texte);font-size:17px;border:1.5px solid #c9cdd4;background:#fff;color:var(--txt)}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form-avis input:focus,.contact-form-avis textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px #d4af3733}
+.contact-form button,.contact-form-avis button{background:var(--navy);color:#fff;font-size:19px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.contact-form button:hover,.contact-form-avis button:hover{background:var(--navy2)}
+.contact-direct a{color:var(--navy);border:1.5px solid var(--navy);font-family:var(--texte)}
+.contact-direct a:hover{background:var(--navy);color:#fff}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* Pied de page */
+footer{background:var(--navy2);color:#fff;font-family:var(--texte);border-top-color:var(--gold)}
+footer a{color:#fff}
+footer a:hover{color:var(--gold)}
+footer::before{background:var(--gold);box-shadow:none}
+
+/* Page Avant / Après */
+#avant-apres h2{font-family:var(--titres);color:var(--navy)}
+#avant-apres .subtitle{color:var(--mut)}
+.projet h3{font-family:var(--titres);color:var(--navy);font-size:28px}
+.images h4{font-family:var(--titres);color:var(--goldt);text-transform:uppercase;letter-spacing:.06em}
+.projet p{color:var(--mut)}
+
+/* Téléphone */
+@media (max-width:768px){
+  h1{font-size:32px}
+  h2{font-size:28px}
+  .logo img{height:34px}
+  .logo span{font-size:22px}
+  header nav a,nav a{font-size:14px}
+  .hero-logo{width:110px}
+  header{padding:10px 15px;flex-direction:column;gap:5px}
+  header nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  header nav a,nav a{margin:0}
+  #avant-apres{padding:40px 16px}
+}
+@media (max-width:900px){
+  header{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+#form-status,#avis-status{color:var(--goldt)!important;font-weight:600}
